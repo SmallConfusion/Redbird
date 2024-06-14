@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmr51txifyigr"]
+
+[ext_resource type="Texture2D" uid="uid://bidr6q42puprw" path="res://game/hole/hole.png" id="1_0aeqx"]
+
+[node name="Hole" type="Node2D" groups=["hole"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0aeqx")

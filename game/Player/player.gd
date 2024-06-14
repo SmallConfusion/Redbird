@@ -16,6 +16,8 @@ var max_speed_y_fall := 0.5
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
 
+var hole_velocity := Vector2(0, 0)
+
 @export var bullet_scene : PackedScene
 @export var fire_sound : AudioStream
 
@@ -71,4 +73,5 @@ func _apply_velocity():
 	else:
 		velocity.y = min(velocity.y, max_speed_y)
 
+	position += game_scene.get_pull(position)
 	position += velocity
