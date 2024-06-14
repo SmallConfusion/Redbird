@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4tx0gogr6xs5"
+path="res://.godot/imported/palette main theme.ogg-cd0696b4ae63ae1004401817921b53c4.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/palette main theme.ogg"
+dest_files=["res://.godot/imported/palette main theme.ogg-cd0696b4ae63ae1004401817921b53c4.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=9.6
+bpm=0.0
+beat_count=0
+bar_beats=4

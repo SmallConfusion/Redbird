@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=8 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ux161"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="3_twdqf"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
+[ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
+
+[sub_resource type="Resource" id="Resource_x8cup"]
+script = ExtResource("4_38lop")
+name = "main"
+enabled = true
+volume = 0.0
+stream = ExtResource("5_t3w2j")
+
+[sub_resource type="Resource" id="Resource_5hsw7"]
+script = ExtResource("3_twdqf")
+name = "main"
+bus = ""
+stems = Array[ExtResource("4_38lop")]([SubResource("Resource_x8cup")])
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -43,3 +60,9 @@ disable_3d = true
 handle_input_locally = false
 size = Vector2i(160, 144)
 render_target_update_mode = 4
+
+[node name="MusicBank" type="Node" parent="."]
+script = ExtResource("2_fe5tn")
+label = "music"
+bus = "music"
+tracks = Array[ExtResource("3_twdqf")]([SubResource("Resource_5hsw7")])
