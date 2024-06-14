@@ -15,11 +15,11 @@ func get_player_position() -> Vector2:
 	return $Player.position
 
 
-func get_pull(position : Vector2):
+func get_pull(check_position : Vector2):
 	var hole_velocity = Vector2(0, 0)
 	
 	for hole in holes:
-		var diff = hole.position - position
+		var diff = hole.position - check_position
 		
 		if diff.length_squared() <= 3600:
 			var pull_strength = hole_pull_curve.sample_baked(diff.length() / hole_pull_x_size) * hole_pull_y_size

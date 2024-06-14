@@ -39,8 +39,12 @@ func _physics_process(delta):
 	_fire(delta)
 
 
+func _die():
+	get_tree().reload_current_scene()
+
+
 func hit(_damage):
-	queue_free()
+	_die()
 
 func _fire(delta):
 	shoot_timer -= delta

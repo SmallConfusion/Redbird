@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmr51txifyigr"]
+[gd_scene load_steps=4 format=3 uid="uid://bmr51txifyigr"]
 
 [ext_resource type="Texture2D" uid="uid://bidr6q42puprw" path="res://game/hole/hole.png" id="1_0aeqx"]
+[ext_resource type="Script" path="res://game/hurtbox.gd" id="2_p4xl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1fvj"]
+size = Vector2(0.1, 0.1)
 
 [node name="Hole" type="Node2D" groups=["hole"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0aeqx")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("2_p4xl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_r1fvj")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
