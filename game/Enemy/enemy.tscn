@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3hb2g0vw7p7h"]
+
+[ext_resource type="Script" path="res://game/Enemy/enemy.gd" id="1_u1f5f"]
+[ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/Enemy/enemy_bullet.tscn" id="2_vraeb"]
+[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/Enemy/pteradactyl_sprites.png" id="3_6f7ol"]
+[ext_resource type="Script" path="res://game/hitbox.gd" id="4_ch8ko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv6bn"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxdku"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfbsi"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmem8"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc87p"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfkn"]
+atlas = ExtResource("3_6f7ol")
+region = Rect2(40, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj1cv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv6bn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.5,
+"texture": SubResource("AtlasTexture_mxdku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfbsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmem8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc87p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfkn")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nwnr"]
+size = Vector2(8, 3)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_u1f5f")
+bullet_scene = ExtResource("2_vraeb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nj1cv")
+animation = &"flap"
+autoplay = "flap"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ch8ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7nwnr")
