@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c8npj7wx1drx"
-path="res://.godot/imported/enemy_bullet.wav-1f78bef8af28900e55c612e34530ff09.sample"
+path="res://.godot/imported/enemy_bullet.wav-c97059b7cdaf8cc62000e772e7b2525b.sample"
 
 [deps]
 
-source_file="res://game/Enemy/enemy_bullet.wav"
-dest_files=["res://.godot/imported/enemy_bullet.wav-1f78bef8af28900e55c612e34530ff09.sample"]
+source_file="res://game/enemy/enemy_bullet.wav"
+dest_files=["res://.godot/imported/enemy_bullet.wav-c97059b7cdaf8cc62000e772e7b2525b.sample"]
 
 [params]
 

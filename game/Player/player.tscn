@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://opsuu1r64pm7"]
 
-[ext_resource type="Script" path="res://game/Player/player.gd" id="1_ritqa"]
+[ext_resource type="Script" path="res://game/player/player.gd" id="1_ritqa"]
 [ext_resource type="PackedScene" uid="uid://d1wsdgfkgckpp" path="res://game/bullet/bullet.tscn" id="2_g5kih"]
-[ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/Player/bird_sprites.png" id="2_mwpah"]
-[ext_resource type="Script" path="res://game/Player/player_animation_manager.gd" id="3_8w1wh"]
+[ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/player/bird_sprites.png" id="2_mwpah"]
+[ext_resource type="Script" path="res://game/player/player_animation_manager.gd" id="3_8w1wh"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="5_1mh6s"]
-[ext_resource type="AudioStream" uid="uid://5u600fqhr17n" path="res://game/Player/player_bullet.wav" id="6_l8wcy"]
+[ext_resource type="AudioStream" uid="uid://5u600fqhr17n" path="res://game/player/player_bullet.wav" id="6_l8wcy"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="7_ntu7r"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="8_l8oum"]
 

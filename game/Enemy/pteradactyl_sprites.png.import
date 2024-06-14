@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0qihawvwl7d1"
-path="res://.godot/imported/pteradactyl_sprites.png-7022f7d64ffe62f136be1a75a7307eeb.ctex"
+path="res://.godot/imported/pteradactyl_sprites.png-fad9540eff9d1575892c9e83240a97d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/Enemy/pteradactyl_sprites.png"
-dest_files=["res://.godot/imported/pteradactyl_sprites.png-7022f7d64ffe62f136be1a75a7307eeb.ctex"]
+source_file="res://game/enemy/pteradactyl_sprites.png"
+dest_files=["res://.godot/imported/pteradactyl_sprites.png-fad9540eff9d1575892c9e83240a97d8.ctex"]
 
 [params]
 

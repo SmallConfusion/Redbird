@@ -1,53 +1,53 @@
 [gd_scene load_steps=21 format=3 uid="uid://d3hb2g0vw7p7h"]
 
-[ext_resource type="Script" path="res://game/Enemy/enemy.gd" id="1_u1f5f"]
-[ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/Enemy/enemy_bullet.tscn" id="2_vraeb"]
-[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/Enemy/pteradactyl_sprites.png" id="3_6f7ol"]
-[ext_resource type="Script" path="res://game/hitbox.gd" id="4_ch8ko"]
-[ext_resource type="AudioStream" uid="uid://c8npj7wx1drx" path="res://game/Enemy/enemy_bullet.wav" id="5_b1e85"]
-[ext_resource type="Script" path="res://game/hurtbox.gd" id="5_cqrei"]
-[ext_resource type="AudioStream" uid="uid://0cmckmnp03vm" path="res://game/Enemy/hit.wav" id="6_0kvom"]
-[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="7_ihq65"]
-[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="8_k7t1h"]
+[ext_resource type="Script" path="res://game/enemy/basic_enemy.gd" id="1_oesba"]
+[ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/enemy/enemy_bullet.tscn" id="2_ydfsk"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_bo2io"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_78pwd"]
+[ext_resource type="AudioStream" uid="uid://c8npj7wx1drx" path="res://game/enemy/enemy_bullet.wav" id="5_fokyx"]
+[ext_resource type="AudioStream" uid="uid://0cmckmnp03vm" path="res://game/enemy/hit.wav" id="6_dbu2u"]
+[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pteradactyl_sprites.png" id="7_s6oke"]
+[ext_resource type="Script" path="res://game/hitbox.gd" id="8_58imh"]
+[ext_resource type="Script" path="res://game/hurtbox.gd" id="9_xdewj"]
 
 [sub_resource type="Resource" id="Resource_4y7un"]
-script = ExtResource("8_k7t1h")
+script = ExtResource("4_78pwd")
 name = "fire"
 bus = ""
 volume = 0.0
 pitch = 1.0
-streams = Array[AudioStream]([ExtResource("5_b1e85")])
+streams = Array[AudioStream]([ExtResource("5_fokyx")])
 
 [sub_resource type="Resource" id="Resource_1j08k"]
-script = ExtResource("8_k7t1h")
+script = ExtResource("4_78pwd")
 name = "die"
 bus = ""
 volume = 0.0
 pitch = 1.0
-streams = Array[AudioStream]([ExtResource("6_0kvom")])
+streams = Array[AudioStream]([ExtResource("6_dbu2u")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv6bn"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxdku"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfbsi"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(10, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmem8"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(20, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc87p"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(30, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dfkn"]
-atlas = ExtResource("3_6f7ol")
+atlas = ExtResource("7_s6oke")
 region = Rect2(40, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nj1cv"]
@@ -88,14 +88,14 @@ size = Vector2(8, 5)
 size = Vector2(8, 3)
 
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_u1f5f")
-bullet_scene = ExtResource("2_vraeb")
+script = ExtResource("1_oesba")
+bullet_scene = ExtResource("2_ydfsk")
 
 [node name="SoundBank" type="Node" parent="."]
-script = ExtResource("7_ihq65")
+script = ExtResource("3_bo2io")
 label = "enemy"
 bus = "sfx"
-events = Array[ExtResource("8_k7t1h")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
+events = Array[ExtResource("4_78pwd")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nj1cv")
@@ -105,14 +105,14 @@ autoplay = "flap"
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_ch8ko")
+script = ExtResource("8_58imh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1tdaj")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("5_cqrei")
+script = ExtResource("9_xdewj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 0.5)

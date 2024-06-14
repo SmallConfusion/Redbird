@@ -3,7 +3,7 @@ extends Node2D
 @export var forward := Vector2(1, 0)
 @export var speed := 1.2
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	position += speed * forward
 
 

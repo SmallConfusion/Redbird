@@ -21,13 +21,13 @@ var accel := Vector2(0, 0)
 
 @onready var game_scene := $"../"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_get_accel()
 	_apply_velocity()
 	_fire()
 
 
-func hit(damage):
+func hit(_damage):
 	queue_free()
 
 func _fire():
