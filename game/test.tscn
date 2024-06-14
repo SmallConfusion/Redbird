@@ -1,9 +1,78 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=12 format=3 uid="uid://c3mhsid5x7d8r"]
 
-[ext_resource type="Texture2D" uid="uid://cwue7dt1og6sw" path="res://icon.svg" id="1_omeek"]
 [ext_resource type="Script" path="res://game/Player.gd" id="1_ul1yy"]
+[ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/bird_sprites.png" id="2_2k662"]
+[ext_resource type="Script" path="res://game/animation_manager.gd" id="3_qwt4s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3l5b"]
+atlas = ExtResource("2_2k662")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psshb"]
+atlas = ExtResource("2_2k662")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asfko"]
+atlas = ExtResource("2_2k662")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvo48"]
+atlas = ExtResource("2_2k662")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yymb"]
+atlas = ExtResource("2_2k662")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxvjs"]
+atlas = ExtResource("2_2k662")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6sdu"]
+atlas = ExtResource("2_2k662")
+region = Rect2(40, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1s45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3l5b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psshb")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asfko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvo48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yymb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxvjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6sdu")
+}],
+"loop": false,
+"name": &"flap",
+"speed": 24.0
+}]
 
 [node name="Node2D" type="Node2D"]
+texture_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -17,7 +86,8 @@ color = Color(0, 0, 0, 1)
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_ul1yy")
 
-[node name="Sprite" type="Sprite2D" parent="Player"]
-position = Vector2(-52, 0)
-scale = Vector2(0.0859375, 0.03125)
-texture = ExtResource("1_omeek")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_d1s45")
+animation = &"flap"
+autoplay = "default"
+script = ExtResource("3_qwt4s")
