@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 
 func _die():
-	get_tree().reload_current_scene()
+	print("dead")
 
 
 func hit(_damage):

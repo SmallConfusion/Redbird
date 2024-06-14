@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=15 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
 [ext_resource type="Shader" path="res://vfx/main.gdshader" id="2_k1k48"]
+[ext_resource type="Theme" uid="uid://dcsgo6t80eu1w" path="res://debug/debug_theme.tres" id="2_n72wt"]
+[ext_resource type="Script" path="res://debug/fps_display.gd" id="3_8gron"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="3_twdqf"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
-[ext_resource type="Script" path="res://fps_display.gd" id="7_1ugmx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_npbsp"]
 viewport_path = NodePath("SubViewport")
@@ -28,6 +29,12 @@ script = ExtResource("3_twdqf")
 name = "main"
 bus = ""
 stems = Array[ExtResource("4_38lop")]([SubResource("Resource_x8cup")])
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ofkc0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gtbim"]
+viewport_path = NodePath("SubViewportContainer/SubViewport2")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -91,8 +98,71 @@ label = "music"
 bus = "music"
 tracks = Array[ExtResource("3_twdqf")]([SubResource("Resource_5hsw7")])
 
-[node name="Label" type="Label" parent="."]
+[node name="DebugWindow" type="Window" parent="."]
+title = "Debug"
+initial_position = 2
+size = Vector2i(1024, 1024)
+visible = false
+unresizable = true
+theme = ExtResource("2_n72wt")
+
+[node name="Control" type="Control" parent="DebugWindow"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DebugWindow/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DebugWindow/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 192.0
+offset_right = 512.0
+offset_bottom = 288.0
+grow_horizontal = 2
+texture = SubResource("ViewportTexture_ofkc0")
+
+[node name="Label2" type="Label" parent="DebugWindow/Control/TextureRect"]
+texture_filter = 2
 layout_mode = 0
-offset_right = 40.0
+offset_top = 288.0
+offset_right = 66.0
+offset_bottom = 311.0
+text = "Viewport 1"
+
+[node name="TextureRect2" type="TextureRect" parent="DebugWindow/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_right = 182.0
+offset_bottom = 288.0
+grow_horizontal = 2
+texture = SubResource("ViewportTexture_gtbim")
+
+[node name="Label2" type="Label" parent="DebugWindow/Control/TextureRect2"]
+texture_filter = 2
+offset_top = 288.0
+offset_right = 66.0
+offset_bottom = 311.0
+text = "Viewport 2"
+
+[node name="Label" type="Label" parent="DebugWindow/Control"]
+offset_right = 66.0
 offset_bottom = 23.0
-script = ExtResource("7_1ugmx")
+text = "asdfasdf"
+script = ExtResource("3_8gron")
