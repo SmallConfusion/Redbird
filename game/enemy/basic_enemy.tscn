@@ -98,6 +98,7 @@ bus = "sfx"
 events = Array[ExtResource("4_78pwd")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_nj1cv")
 animation = &"flap"
 autoplay = "flap"
