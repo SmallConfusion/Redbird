@@ -28,6 +28,8 @@ var shoot_cache := false
 
 var max_input_cache := 0.2
 
+var wall_bounce := 0.25
+
 @export var bullet_scene : PackedScene
 @export var fire_sound : AudioStream
 
@@ -36,7 +38,9 @@ var max_input_cache := 0.2
 func _physics_process(delta):
 	_get_accel(delta)
 	_apply_velocity()
+	_check_bounds()
 	_fire(delta)
+	
 
 
 func _die():
@@ -107,3 +111,31 @@ func _apply_velocity():
 
 	position += game_scene.get_pull(position)
 	position += velocity
+
+
+func _check_bounds():
+	var bounds = game_scene.get_bounds()
+	var error = false
+	
+	if position.y < bounds[0]:
+		velocity.y = wall_bounce
+		position.y = bounds[0]
+		error = true
+	
+	elif position.y > bounds[1]:
+		velocity.y = -wall_bounce
+		position.y = bounds[1]
+		error = true
+	
+	if position.x < bounds[2]:
+		velocity.x = wall_bounce
+		position.x = bounds[2]
+		error = true
+	
+	elif position.x > bounds[3]:
+		velocity.x = -wall_bounce
+		position.x = bounds[3]
+		error = true
+	
+	if error:
+		SoundManager.play("player", "error")

@@ -26,3 +26,7 @@ func get_pull(check_position : Vector2):
 			hole_velocity += pull_strength * diff.normalized()
 			
 	return hole_velocity
+
+
+func get_bounds():
+	return [-39, 62, -76, 76]
