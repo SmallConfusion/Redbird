@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=15 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/Player/player.tscn" id="1_uvet6"]
-[ext_resource type="Script" path="res://game/Enemy/enemy.gd" id="2_hnsue"]
-[ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/Enemy/enemy_bullet.tscn" id="3_6lo7j"]
-[ext_resource type="Script" path="res://game/hitbox.gd" id="4_73l23"]
 [ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/Enemy/pteradactyl_sprites.png" id="4_a6cw0"]
+[ext_resource type="Texture2D" uid="uid://b6ndnn3m48exj" path="res://game/Player/bullet.png" id="4_o3smo"]
+[ext_resource type="Script" path="res://game/enemy.gd" id="4_puhwn"]
+[ext_resource type="Script" path="res://game/bullet.gd" id="4_vfumv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv6bn"]
 atlas = ExtResource("4_a6cw0")
@@ -64,6 +64,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nwnr"]
 size = Vector2(8, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8w8t"]
+size = Vector2(2, 1)
+
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 
@@ -77,21 +80,30 @@ offset_bottom = 72.0
 color = Color(0.184314, 0.12549, 0.254902, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_uvet6")]
-position = Vector2(-71, 0)
+position = Vector2(-71, 1)
 
 [node name="Enemy" type="Node2D" parent="."]
-script = ExtResource("2_hnsue")
-bullet_scene = ExtResource("3_6lo7j")
+script = ExtResource("4_puhwn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_nj1cv")
 animation = &"flap"
 
-[node name="Hitbox" type="Area2D" parent="Enemy"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("4_73l23")
+[node name="Area2D" type="Area2D" parent="Enemy"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7nwnr")
+
+[node name="Bullet" type="Node2D" parent="."]
+position = Vector2(-51, 0)
+script = ExtResource("4_vfumv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet"]
+texture = ExtResource("4_o3smo")
+
+[node name="Area2D" type="Area2D" parent="Bullet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_w8w8t")

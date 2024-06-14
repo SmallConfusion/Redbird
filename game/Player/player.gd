@@ -1,26 +1,39 @@
 extends Node2D
 
-var flap_accel := 0.35
-var horizontal_accel := 0.01
+var flap_accel := 0.75
+var horizontal_accel := 0.03
 
-var gravity := 0.001
-var gravity_fall := 0.01
+var gravity := 0.006
+var gravity_fall := 0.04
 
 var friction = 0.99
 
-var max_speed_x := 0.1
+var max_speed_x := 0.2
 
-var max_speed_y := 0.1
-var max_speed_y_fall := 0.2
+var max_speed_y := 0.2
+var max_speed_y_fall := 0.5
 
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
 
-func _process(delta):
+@export var bullet_scene : PackedScene
+
+@onready var game_scene := $"../"
+
+func _physics_process(delta):
 	_get_accel()
 	_apply_velocity()
-	
-	
+	_fire()
+
+
+func hit(damage):
+	queue_free()
+
+func _fire():
+	if Input.is_action_just_pressed("Fire"):
+		var instance = bullet_scene.instantiate()
+		instance.position = position
+		game_scene.add_child(instance)
 
 
 func _get_accel():
