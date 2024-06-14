@@ -16,7 +16,10 @@ func _physics_process(delta):
 		var instance = bullet_scene.instantiate()
 		instance.position = position
 		game_scene.add_child(instance)
+		
+		SoundManager.play("enemy", "fire")
 
 
 func hit(damage):
+	SoundManager.play("enemy", "die")
 	queue_free()

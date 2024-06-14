@@ -8,7 +8,7 @@ var gravity_fall := 0.04
 
 var friction = 0.99
 
-var max_speed_x := 0.2
+var max_speed_x := 0.4
 
 var max_speed_y := 0.2
 var max_speed_y_fall := 0.5
@@ -17,6 +17,7 @@ var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
 
 @export var bullet_scene : PackedScene
+@export var fire_sound : AudioStream
 
 @onready var game_scene := $"../"
 
@@ -34,6 +35,7 @@ func _fire():
 		var instance = bullet_scene.instantiate()
 		instance.position = position
 		game_scene.add_child(instance)
+		SoundManager.play("player", "fire")
 
 
 func _get_accel():
