@@ -22,7 +22,7 @@ manager/sound/pool_1D_size=16
 manager/sound/pool_2D_size=16
 manager/sound/pool_3D_size=16
 manager/sound/max_polyphony=32
-manager/music/bus="Music"
+manager/music/bus="music"
 
 [autoload]
 

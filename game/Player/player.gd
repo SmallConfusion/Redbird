@@ -56,6 +56,7 @@ func _get_accel():
 	if Input.is_action_just_pressed("Flap"):
 		accel.y = -velocity.y - flap_accel
 		$AnimatedSprite2D.play("flap")
+		SoundManager.play("player", "flap")
 		
 	
 	accel.x = Input.get_axis("Left", "Right") * horizontal_accel

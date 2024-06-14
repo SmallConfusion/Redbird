@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_78pwd"]
 [ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="5_js017"]
 [ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="6_nlcn6"]
-[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pteradactyl_sprites.png" id="7_s6oke"]
+[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pterodactyl_sprites.png" id="7_s6oke"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="8_58imh"]
 [ext_resource type="Script" path="res://game/hurtbox.gd" id="9_xdewj"]
 
