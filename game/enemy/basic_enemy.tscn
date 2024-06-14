@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/enemy/enemy_bullet.tscn" id="2_ydfsk"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_bo2io"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_78pwd"]
-[ext_resource type="AudioStream" uid="uid://c8npj7wx1drx" path="res://game/enemy/enemy_bullet.wav" id="5_fokyx"]
-[ext_resource type="AudioStream" uid="uid://0cmckmnp03vm" path="res://game/enemy/hit.wav" id="6_dbu2u"]
+[ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="5_js017"]
+[ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="6_nlcn6"]
 [ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pteradactyl_sprites.png" id="7_s6oke"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="8_58imh"]
 [ext_resource type="Script" path="res://game/hurtbox.gd" id="9_xdewj"]
@@ -16,7 +16,7 @@ name = "fire"
 bus = ""
 volume = 0.0
 pitch = 1.0
-streams = Array[AudioStream]([ExtResource("5_fokyx")])
+streams = Array[AudioStream]([ExtResource("5_js017")])
 
 [sub_resource type="Resource" id="Resource_1j08k"]
 script = ExtResource("4_78pwd")
@@ -24,7 +24,7 @@ name = "die"
 bus = ""
 volume = 0.0
 pitch = 1.0
-streams = Array[AudioStream]([ExtResource("6_dbu2u")])
+streams = Array[AudioStream]([ExtResource("6_nlcn6")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv6bn"]
 atlas = ExtResource("7_s6oke")
