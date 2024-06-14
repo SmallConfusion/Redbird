@@ -18,29 +18,60 @@ var accel := Vector2(0, 0)
 
 var hole_velocity := Vector2(0, 0)
 
+var flap_timer := 0.0
+var flap_cooldown := 0.5
+var flap_cache = false
+
+var shoot_timer := 0.0
+var shoot_cooldown := 1.0
+var shoot_cache := false
+
+var max_input_cache := 0.2
+
 @export var bullet_scene : PackedScene
 @export var fire_sound : AudioStream
 
 @onready var game_scene := $"../"
 
-func _physics_process(_delta):
-	_get_accel()
+func _physics_process(delta):
+	_get_accel(delta)
 	_apply_velocity()
-	_fire()
+	_fire(delta)
 
 
 func hit(_damage):
 	queue_free()
 
-func _fire():
-	if Input.is_action_just_pressed("Fire"):
+func _fire(delta):
+	shoot_timer -= delta
+	
+	if (Input.is_action_pressed("Fire") or shoot_cache) and shoot_timer <= 0:
+		shoot_timer = shoot_cooldown
+		shoot_cache = false
+		
 		var instance = bullet_scene.instantiate()
 		instance.position = position
 		game_scene.add_child(instance)
 		SoundManager.play("player", "fire")
+	elif Input.is_action_just_pressed("Fire") and shoot_timer <= max_input_cache:
+		shoot_cache = true
 
 
-func _get_accel():
+func _flap(delta):
+	flap_timer -= delta
+	
+	if (Input.is_action_pressed("Flap") or flap_cache) and flap_timer <= 0:
+		flap_timer = flap_cooldown
+		flap_cache = false
+		
+		accel.y = -velocity.y - flap_accel
+		$AnimatedSprite2D.play("flap")
+		SoundManager.play("player", "flap")
+	elif Input.is_action_just_pressed("Flap") and flap_timer <= max_input_cache:
+		flap_cache = true
+	
+
+func _get_accel(delta):
 	accel = Vector2(0, 0)
 	
 	if Input.is_action_just_pressed("Fall"):
@@ -53,11 +84,7 @@ func _get_accel():
 	else:
 		accel.y += gravity
 	
-	if Input.is_action_just_pressed("Flap"):
-		accel.y = -velocity.y - flap_accel
-		$AnimatedSprite2D.play("flap")
-		SoundManager.play("player", "flap")
-		
+	_flap(delta)
 	
 	accel.x = Input.get_axis("Left", "Right") * horizontal_accel
 

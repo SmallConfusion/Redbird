@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_78pwd"]
 [ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="5_js017"]
 [ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="6_nlcn6"]
-[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pterodactyl_sprites.png" id="7_s6oke"]
+[ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/pterodactyl_sprites.png" id="7_d5xul"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="8_58imh"]
 [ext_resource type="Script" path="res://game/hurtbox.gd" id="9_xdewj"]
 
@@ -27,27 +27,27 @@ pitch = 1.0
 streams = Array[AudioStream]([ExtResource("6_nlcn6")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv6bn"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxdku"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfbsi"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(10, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmem8"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(20, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc87p"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(30, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dfkn"]
-atlas = ExtResource("7_s6oke")
+atlas = ExtResource("7_d5xul")
 region = Rect2(40, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nj1cv"]

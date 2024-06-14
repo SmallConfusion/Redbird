@@ -15,4 +15,4 @@ func load_main():
 
 
 func on_music_manager_updated():
-	MusicManager.play("music", "main")
+	MusicManager.play("music", "main", 0)
