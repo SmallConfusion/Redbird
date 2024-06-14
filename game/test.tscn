@@ -81,7 +81,7 @@ offset_left = -80.0
 offset_top = -72.0
 offset_right = 80.0
 offset_bottom = 72.0
-color = Color(0, 0, 0, 1)
+color = Color(0.184314, 0.12549, 0.254902, 1)
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_ul1yy")
@@ -91,3 +91,5 @@ sprite_frames = SubResource("SpriteFrames_d1s45")
 animation = &"flap"
 autoplay = "default"
 script = ExtResource("3_qwt4s")
+
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player/AnimatedSprite2D" method="_on_animation_finished"]
