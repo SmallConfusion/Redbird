@@ -15,13 +15,13 @@ var accel := Vector2(0, 0)
 
 var enabled := false
 
-@onready var game_scene := $"../"
+@onready var game_scene := $"../../../"
 
 func _physics_process(delta):
 	if enabled:
 		_handle_fire(delta)
 		_move()
-	elif position.x <= game_scene.get_bounds(0, 0, 0, -4)[3]:
+	elif global_position.x <= game_scene.get_bounds(0, 0, 0, -4)[3]:
 		enabled = true
 		
 
@@ -31,7 +31,7 @@ func _move():
 	var y = game_scene.get_player_position().y + target_y_offset
 	var target = Vector2(x, y)
 	
-	accel = (target - position).normalized() * accel_speed
+	accel = (target - global_position).normalized() * accel_speed
 	
 	velocity += accel
 	
@@ -53,7 +53,7 @@ func _handle_fire(delta):
 		bullet_timer = bullet_cooldown
 		
 		var instance = bullet_scene.instantiate()
-		instance.position = position
+		instance.position = global_position
 		game_scene.add_child(instance)
 		
 		SoundManager.play("enemy", "fire")

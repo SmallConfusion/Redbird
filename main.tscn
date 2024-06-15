@@ -80,7 +80,7 @@ offset_right = 80.0
 offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4.5, 4.5)
+scale = Vector2(5, 5)
 pivot_offset = Vector2(80, 72)
 
 [node name="SubViewport2" type="SubViewport" parent="SubViewportContainer"]

@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if enabled:
 		_handle_fire(delta)
 		_move()
-	elif position.x <= game_scene.get_bounds(0, 0, 0, -5)[3]:
+	elif global_position.x <= game_scene.get_bounds(0, 0, 0, -5)[3]:
 		enabled = true
 
 
@@ -32,14 +32,14 @@ func _move():
 	var x = game_scene.get_x_offset() + 60
 	var target = Vector2(x, y)
 	
-	accel = (target - position).normalized() * accel_speed
+	accel = (target - global_position).normalized() * accel_speed
 	
 	velocity += accel
 	
 	if velocity.length_squared() > max_speed ** 2:
 		velocity = velocity.normalized() * max_speed
 	
-	position += velocity
+	global_position += velocity
 	
 	#var bounds = game_scene.get_bounds(6, 5, 5, 5)
 	#
@@ -60,7 +60,7 @@ func _handle_fire(delta):
 func _shoot():
 	for i in range(8):
 		var instance = bullet_scene.instantiate()
-		instance.position = position
+		instance.position = global_position
 		instance.forward = Vector2(-1, 0).rotated(i * 0.2 - 0.7854)
 		game_scene.add_child(instance)
 		await get_tree().create_timer(0.02).timeout

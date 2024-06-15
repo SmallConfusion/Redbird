@@ -13,6 +13,10 @@ var holes : Array
 
 var scene_manager
 
+var waves
+var wave := 0
+
+var wave_position = INF
 
 func init(scene):
 	scene_manager = scene
@@ -22,10 +26,20 @@ func _ready():
 	holes = get_tree().get_nodes_in_group("hole")
 	get_node(finish).connect("win", win)
 	get_node(player).connect("dead", restart)
+	
+	waves = $Waves.get_children()
 
 
 func _physics_process(_delta):
-	$Camera2D.position.x += camera_speed
+	if len(waves) > wave and waves[wave].number_of_enemies() == 0:
+		wave += 1
+		
+	if len(waves) > wave:
+		wave_position = waves[wave].position.x - 80
+	else:
+		wave_position = INF
+	
+	$Camera2D.position.x = min($Camera2D.position.x + camera_speed, wave_position)
 
 
 func get_player_position() -> Vector2:
@@ -54,7 +68,10 @@ func get_x_offset():
 
 
 func get_x_speed():
-	return -camera_speed
+	if $Camera2D.position.x != wave_position:
+		return -camera_speed
+	else:
+		return 0
 
 
 func win():

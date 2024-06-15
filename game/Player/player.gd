@@ -50,7 +50,7 @@ func _physics_process(delta):
 
 
 func _die():
-	$AnimatedSprite2D.play("die")
+	$AnimatedSprite2D.die()
 	is_dead = true
 	velocity = Vector2.ZERO
 	accel = Vector2.ZERO
@@ -78,7 +78,7 @@ func _fire(delta):
 func _flap(delta):
 	flap_timer -= delta
 	
-	if (Input.is_action_pressed("Flap") or flap_cache) and flap_timer <= 0:
+	if (Input.is_action_pressed("Flap") or flap_cache) and flap_timer <= 0 and not is_dead:
 		flap_timer = flap_cooldown
 		flap_cache = false
 		

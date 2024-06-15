@@ -1,18 +1,26 @@
 extends AnimatedSprite2D
 
 var falling := false
+var dead := false
 
 func _on_animation_finished():
-	if not falling:
+	if not falling and not dead:
 		play("default")
 
 func flap():
-	play("flap")
+	if not dead:
+		play("flap")
 
 func begin_fall():
-	play("fall")
-	falling = true
+	if not dead:
+		play("fall")
+		falling = true
 
 func end_fall():
-	play("default")
-	falling = false
+	if not dead:
+		play("default")
+		falling = false
+
+func die():
+	play("die")
+	dead = true
