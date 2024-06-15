@@ -1,13 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmr51txifyigr"]
+[gd_scene load_steps=11 format=3 uid="uid://bmr51txifyigr"]
 
 [ext_resource type="Texture2D" uid="uid://bidr6q42puprw" path="res://game/hole/hole.png" id="1_0aeqx"]
 [ext_resource type="Script" path="res://game/hurtbox.gd" id="2_p4xl3"]
+
+[sub_resource type="Gradient" id="Gradient_meey5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.34, 0.685, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.745098, 0.843137, 0.913725, 1, 0.745098, 0.843137, 0.913725, 1, 0.745098, 0.843137, 0.913725, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7krxh"]
+gradient = SubResource("Gradient_meey5")
+
+[sub_resource type="Curve" id="Curve_pka2c"]
+max_value = 10.0
+_data = [Vector2(0, 2.52747), 0.0, 0.0, 0, 0, Vector2(1, 8.9011), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jij68"]
+curve = SubResource("Curve_pka2c")
+
+[sub_resource type="Curve" id="Curve_s1agf"]
+max_value = 10.0
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0mepa"]
+curve = SubResource("Curve_s1agf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_owrye"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 27.95
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -60.0
+radial_accel_max = -40.0
+radial_accel_curve = SubResource("CurveTexture_jij68")
+tangential_accel_min = 10.0
+tangential_accel_max = 20.0
+tangential_accel_curve = SubResource("CurveTexture_0mepa")
+damping_min = 67.64
+damping_max = 88.755
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("GradientTexture1D_7krxh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1fvj"]
 size = Vector2(0.1, 0.1)
 
 [node name="Hole" type="Node2D" groups=["hole"]]
 texture_filter = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_owrye")
+preprocess = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0aeqx")

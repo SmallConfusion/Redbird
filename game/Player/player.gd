@@ -104,7 +104,7 @@ func _get_accel(delta):
 	
 	_flap(delta)
 	
-	accel.x = 0 if is_dead else Input.get_axis("Left", "Right") * horizontal_accel
+	accel.x = 0.0 if is_dead else Input.get_axis("Left", "Right") * horizontal_accel
 
 
 func _apply_velocity():

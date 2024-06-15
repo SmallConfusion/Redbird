@@ -21,8 +21,8 @@ var parallax : float
 func init(on_screen : bool):
 	randomize()
 	
-	var y = randi_range(min_y, max_y)
-	var x = randi_range(min_x, max_x) if on_screen else max_x
+	var y = randf_range(min_y, max_y)
+	var x = randf_range(min_x, max_x) if on_screen else max_x
 	
 	x += camera.position.x
 	

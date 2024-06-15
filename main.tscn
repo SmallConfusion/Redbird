@@ -42,7 +42,7 @@ viewport_path = NodePath("SubViewportContainer/SubViewport2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eegpy"]
 shader = ExtResource("4_1p6e5")
-shader_parameter/blur_amount = 0.5
+shader_parameter/blur_amount = 0.35
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -199,7 +199,7 @@ script = ExtResource("11_pd3vo")
 
 [node name="Camera2D" type="Camera2D" parent="DebugWindow/SubViewportContainer/SubViewport"]
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="PostProcessing" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_eegpy")
 layout_mode = 1
 anchors_preset = 15

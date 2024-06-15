@@ -5,7 +5,7 @@ func _ready():
 	world_2d = %SubViewport.world_2d
 	
 
-func _process(delta):
+func _process(_delta):
 	var cameras = get_tree().get_nodes_in_group("camera")
 	
 	if cameras:
