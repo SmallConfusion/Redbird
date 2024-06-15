@@ -34,7 +34,6 @@ MusicManager="*res://addons/resonate/music_manager/music_manager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/subwindows/embed_subwindows=false

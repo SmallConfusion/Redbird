@@ -14,6 +14,7 @@ func _ready():
 	
 	if not OS.is_debug_build():
 		$DebugWindow.queue_free()
+		AudioServer.set_bus_mute(2, false)
 	
 	$DebugWindow.visible = false
 
