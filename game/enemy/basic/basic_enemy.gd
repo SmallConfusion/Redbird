@@ -13,15 +13,23 @@ var bullet_cooldown := 1.0
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
 
+var enabled := false
+
 @onready var game_scene := $"../"
 
 func _physics_process(delta):
-	_handle_fire(delta)
-	_move()
+	if enabled:
+		_handle_fire(delta)
+		_move()
+	elif position.x <= game_scene.get_bounds(0, 0, 0, -4)[3]:
+		enabled = true
+		
 
 
 func _move():
-	var target = Vector2(40, game_scene.get_player_position().y + target_y_offset)
+	var x = game_scene.get_x_offset() + 40
+	var y = game_scene.get_player_position().y + target_y_offset
+	var target = Vector2(x, y)
 	
 	accel = (target - position).normalized() * accel_speed
 	
@@ -31,6 +39,11 @@ func _move():
 		velocity = velocity.normalized() * max_speed
 	
 	position += velocity
+	
+	#var bounds = game_scene.get_bounds(1, 2, 4, 4)
+	#
+	#position.x = clamp(position.x, bounds[2], bounds[3])
+	#position.y = clamp(position.y, bounds[0], bounds[1])
 
 
 func _handle_fire(delta):

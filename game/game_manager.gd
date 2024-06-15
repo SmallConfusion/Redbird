@@ -4,11 +4,17 @@ extends Node2D
 @export var hole_pull_x_size := 60
 @export var hole_pull_y_size := 2
 
+@export var camera_speed := 0.2
+
 var holes : Array
 
 
 func _ready():
 	holes = get_tree().get_nodes_in_group("hole")
+
+
+func _physics_process(_delta):
+	$Camera2D.position.x += camera_speed
 
 
 func get_player_position() -> Vector2:
@@ -28,5 +34,13 @@ func get_pull(check_position : Vector2):
 	return hole_velocity
 
 
-func get_bounds():
-	return [-39, 62, -76, 76]
+func get_bounds(n, s, w, e):
+	return [-40 + n, 64 - s, -80 + w + get_x_offset(), 80 - e + get_x_offset()]
+
+
+func get_x_offset():
+	return $Camera2D.position.x
+
+
+func get_x_speed():
+	return -camera_speed

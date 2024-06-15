@@ -35,12 +35,12 @@ var wall_bounce := 0.25
 
 @onready var game_scene := $"../"
 
+
 func _physics_process(delta):
 	_get_accel(delta)
 	_apply_velocity()
 	_check_bounds()
 	_fire(delta)
-	
 
 
 func _die():
@@ -111,10 +111,11 @@ func _apply_velocity():
 
 	position += game_scene.get_pull(position)
 	position += velocity
+	position.x -= game_scene.get_x_speed()
 
 
 func _check_bounds():
-	var bounds = game_scene.get_bounds()
+	var bounds = game_scene.get_bounds(1, 2, 4, 4)
 	var error = false
 	
 	if position.y < bounds[0]:

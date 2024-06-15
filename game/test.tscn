@@ -1,40 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=6 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_rw0mi"]
 [ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_r2py3"]
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="2_sc0he"]
-[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic_enemy.tscn" id="3_fjift"]
+[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="4_nnd8v"]
+[ext_resource type="PackedScene" uid="uid://cyi43lciv03ed" path="res://game/enemy/octave/octave_enemy.tscn" id="4_oe43c"]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_rw0mi")
 hole_pull_curve = ExtResource("2_r2py3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -80.0
-offset_top = -72.0
-offset_right = 80.0
-offset_bottom = 72.0
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 144.0
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+offset_right = 160.0
+offset_bottom = 32.0
+color = Color(0.745098, 0.843137, 0.913725, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer2"]
+offset_top = 136.0
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.745098, 0.843137, 0.913725, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_sc0he")]
 position = Vector2(-71, 0)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -80.0
-offset_top = -72.0
-offset_right = 80.0
-offset_bottom = -40.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
+[node name="Enemy" parent="." instance=ExtResource("4_oe43c")]
+position = Vector2(97, 34)
+y_range_min = -20
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = -80.0
-offset_top = 64.0
-offset_right = 80.0
-offset_bottom = 72.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
+[node name="Enemy2" parent="." instance=ExtResource("4_oe43c")]
+position = Vector2(126, -38)
+y_range_min = -20
 
-[node name="Enemy" parent="." instance=ExtResource("3_fjift")]
-position = Vector2(64, 13)
+[node name="Enemy3" parent="." instance=ExtResource("4_nnd8v")]
+position = Vector2(157, 20)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_nnd8v")]
+position = Vector2(97, 2)
