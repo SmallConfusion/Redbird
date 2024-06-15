@@ -97,17 +97,14 @@ script = ExtResource("6_wixt4")
 position = Vector2(-34, -10)
 
 [node name="Wave2" type="Node2D" parent="Waves"]
-position = Vector2(382, -3)
+position = Vector2(278, -3)
 script = ExtResource("6_wixt4")
 
 [node name="Enemy" parent="Waves/Wave2" instance=ExtResource("7_t55cj")]
-position = Vector2(-80, -11)
-
-[node name="Enemy2" parent="Waves/Wave2" instance=ExtResource("7_4ry5p")]
-position = Vector2(-62, 20)
+position = Vector2(-38, -12)
 
 [node name="Wave3" type="Node2D" parent="Waves"]
-position = Vector2(486, -9)
+position = Vector2(423, -9)
 script = ExtResource("6_wixt4")
 
 [node name="Enemy" parent="Waves/Wave3" instance=ExtResource("7_t55cj")]
@@ -120,7 +117,7 @@ position = Vector2(-35, 50)
 position = Vector2(-35, 34)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
-position = Vector2(603, 2)
+position = Vector2(510, 2)
 script = ExtResource("6_wixt4")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("8_4e070")]
