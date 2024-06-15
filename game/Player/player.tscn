@@ -123,7 +123,7 @@ sprite_frames = SubResource("SpriteFrames_d1s45")
 autoplay = "default"
 script = ExtResource("3_8w1wh")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 position = Vector2(0, 1)
 script = ExtResource("5_1mh6s")
 

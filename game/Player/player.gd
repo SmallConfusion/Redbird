@@ -1,5 +1,7 @@
 extends Node2D
 
+signal dead
+
 var flap_accel := 0.75
 var horizontal_accel := 0.03
 
@@ -44,7 +46,7 @@ func _physics_process(delta):
 
 
 func _die():
-	print("dead")
+	emit_signal("dead")
 
 
 func hit(_damage):

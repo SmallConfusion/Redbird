@@ -6,6 +6,9 @@ extends Node2D
 
 @export var camera_speed := 0.2
 
+@export_node_path("Node2D") var finish
+@export_node_path("Node2D") var player
+
 var holes : Array
 
 var scene_manager
@@ -17,6 +20,8 @@ func init(scene):
 
 func _ready():
 	holes = get_tree().get_nodes_in_group("hole")
+	get_node(finish).connect("win", win)
+	get_node(player).connect("dead", restart)
 
 
 func _physics_process(_delta):
@@ -50,3 +55,11 @@ func get_x_offset():
 
 func get_x_speed():
 	return -camera_speed
+
+
+func win():
+	scene_manager.load_menu()
+
+
+func restart():
+	scene_manager.load_menu()
