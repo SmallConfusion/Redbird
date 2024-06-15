@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3mhsid5x7d8r"]
 
-[ext_resource type="Script" path="res://game/game_manager.gd" id="1_rw0mi"]
-[ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_r2py3"]
-[ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="2_sc0he"]
-[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="4_nnd8v"]
-[ext_resource type="PackedScene" uid="uid://cyi43lciv03ed" path="res://game/enemy/octave/octave_enemy.tscn" id="4_oe43c"]
+[ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_20xix"]
+[ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_nectp"]
+[ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="3_d65yc"]
+[ext_resource type="PackedScene" uid="uid://cyi43lciv03ed" path="res://game/enemy/octave/octave_enemy.tscn" id="4_b8tic"]
+[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="5_7mo58"]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_rw0mi")
-hole_pull_curve = ExtResource("2_r2py3")
+script = ExtResource("1_20xix")
+hole_pull_curve = ExtResource("2_nectp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -35,19 +35,19 @@ color = Color(0.745098, 0.843137, 0.913725, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_sc0he")]
+[node name="Player" parent="." instance=ExtResource("3_d65yc")]
 position = Vector2(-71, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("4_oe43c")]
+[node name="Enemy" parent="." instance=ExtResource("4_b8tic")]
 position = Vector2(97, 34)
 y_range_min = -20
 
-[node name="Enemy2" parent="." instance=ExtResource("4_oe43c")]
+[node name="Enemy2" parent="." instance=ExtResource("4_b8tic")]
 position = Vector2(126, -38)
 y_range_min = -20
 
-[node name="Enemy3" parent="." instance=ExtResource("4_nnd8v")]
+[node name="Enemy3" parent="." instance=ExtResource("5_7mo58")]
 position = Vector2(157, 20)
 
-[node name="Enemy4" parent="." instance=ExtResource("4_nnd8v")]
+[node name="Enemy4" parent="." instance=ExtResource("5_7mo58")]
 position = Vector2(97, 2)

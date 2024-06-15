@@ -47,6 +47,10 @@ movie_writer/movie_file="C:/Users/Ducks/OneDrive/Documents/GitHub/movie.avi"
 
 enabled=PackedStringArray("res://addons/resonate/plugin.cfg")
 
+[gui]
+
+theme/custom="res://default_theme.tres"
+
 [input]
 
 Flap={

@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=17 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
+[ext_resource type="PackedScene" uid="uid://20ok8gqsfhqm" path="res://menu/menu.tscn" id="2_gmm5b"]
 [ext_resource type="Shader" path="res://vfx/main.gdshader" id="2_k1k48"]
 [ext_resource type="Theme" uid="uid://dcsgo6t80eu1w" path="res://debug/debug_theme.tres" id="2_n72wt"]
 [ext_resource type="Script" path="res://debug/fps_display.gd" id="3_8gron"]
+[ext_resource type="PackedScene" uid="uid://c3mhsid5x7d8r" path="res://game/levels/level_1.tscn" id="3_j42tc"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="3_twdqf"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
@@ -44,6 +46,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ux161")
+menu = ExtResource("2_gmm5b")
+levels = Array[PackedScene]([ExtResource("3_j42tc")])
 
 [node name="SubViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
