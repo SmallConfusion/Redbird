@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5vkpxwgvm6c7"]
 
-[ext_resource type="Script" path="res://game/levels/star_handler.gd" id="1_msgem"]
+[ext_resource type="Script" path="res://vfx/stars/star_handler.gd" id="1_msgem"]
 [ext_resource type="PackedScene" uid="uid://civytch0e8j0x" path="res://vfx/stars/star_large.tscn" id="2_e75jb"]
 [ext_resource type="PackedScene" uid="uid://c7t1l14mx1ho1" path="res://vfx/stars/star_medium.tscn" id="3_m8agf"]
 [ext_resource type="PackedScene" uid="uid://x7hr7a1nas2e" path="res://vfx/stars/star_small.tscn" id="4_axbfe"]

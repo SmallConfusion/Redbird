@@ -9,9 +9,9 @@ void fragment() {
 	
 	vec3 diff = viewport_color - color;
 	
-	diff.r *= sign(diff.r) / 8.0 + 0.6;
-	diff.g *= sign(diff.g) / 8.0 + 0.6;
-	diff.b *= sign(diff.b) / 8.0 + 0.6;
+	diff.r *= sign(diff.r) / 8.0 + 0.65;
+	diff.g *= sign(diff.g) / 8.0 + 0.65;
+	diff.b *= sign(diff.b) / 8.0 + 0.65;
 	
 	color += diff;
 	

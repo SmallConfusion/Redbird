@@ -8,7 +8,7 @@ var accel_speed = 0.01
 var max_speed = 0.2
 
 var bullet_timer := 1.0
-var bullet_cooldown := 1.0
+@export var bullet_cooldown := 1.0
 
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)

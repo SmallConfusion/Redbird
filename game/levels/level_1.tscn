@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="3_d65yc"]
 [ext_resource type="PackedScene" uid="uid://5vkpxwgvm6c7" path="res://vfx/stars/stars.tscn" id="3_olfgw"]
 [ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="5_7mo58"]
-[ext_resource type="Script" path="res://game/wave.gd" id="6_b0ea8"]
+[ext_resource type="Script" path="res://game/levels/wave.gd" id="6_d2j5s"]
 [ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="6_dlb8f"]
 [ext_resource type="PackedScene" uid="uid://b2bvdeyhcyp54" path="res://game/egg/egg.tscn" id="7_652e0"]
 
@@ -90,21 +90,21 @@ offset_bottom = 64.0
 
 [node name="Wave1" type="Node2D" parent="Waves"]
 position = Vector2(181, 0)
-script = ExtResource("6_b0ea8")
+script = ExtResource("6_d2j5s")
 
 [node name="Enemy" parent="Waves/Wave1" instance=ExtResource("5_7mo58")]
 position = Vector2(-9, -17)
 
 [node name="Wave2" type="Node2D" parent="Waves"]
 position = Vector2(241, 10)
-script = ExtResource("6_b0ea8")
+script = ExtResource("6_d2j5s")
 
 [node name="Enemy2" parent="Waves/Wave2" instance=ExtResource("5_7mo58")]
 position = Vector2(-12, 10)
 
 [node name="Wave3" type="Node2D" parent="Waves"]
 position = Vector2(314, 6)
-script = ExtResource("6_b0ea8")
+script = ExtResource("6_d2j5s")
 
 [node name="Enemy3" parent="Waves/Wave3" instance=ExtResource("5_7mo58")]
 position = Vector2(-12, -21)
@@ -114,19 +114,26 @@ position = Vector2(-12, 16)
 
 [node name="Wave4" type="Node2D" parent="Waves"]
 position = Vector2(390, 2)
-script = ExtResource("6_b0ea8")
+script = ExtResource("6_d2j5s")
 
 [node name="Enemy5" parent="Waves/Wave4" instance=ExtResource("5_7mo58")]
 position = Vector2(-5, 31)
+bullet_cooldown = 0.0
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
 position = Vector2(484, 1)
-script = ExtResource("6_b0ea8")
+script = ExtResource("6_d2j5s")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("7_652e0")]
 position = Vector2(-35, 2)
 
 [node name="Hole" parent="." instance=ExtResource("6_dlb8f")]
 position = Vector2(352, 48)
+
+[node name="Hole2" parent="." instance=ExtResource("6_dlb8f")]
+position = Vector2(335, 37)
+
+[node name="Hole3" parent="." instance=ExtResource("6_dlb8f")]
+position = Vector2(353, 25)
 
 [connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]
