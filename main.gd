@@ -50,4 +50,4 @@ func load_scene(scene):
 
 # temp level load
 func load_level():
-	load_scene(levels[0])
+	load_scene(levels[1])

@@ -52,6 +52,7 @@ texture_filter = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 process_material = SubResource("ParticleProcessMaterial_owrye")
 preprocess = 1.0
+visibility_rect = Rect2(-40, -40, 80, 80)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0aeqx")
