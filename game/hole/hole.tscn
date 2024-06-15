@@ -7,6 +7,7 @@
 size = Vector2(0.1, 0.1)
 
 [node name="Hole" type="Node2D" groups=["hole"]]
+texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0aeqx")

@@ -118,7 +118,6 @@ script = ExtResource("6_d2j5s")
 
 [node name="Enemy5" parent="Waves/Wave4" instance=ExtResource("5_7mo58")]
 position = Vector2(-5, 31)
-bullet_cooldown = 0.0
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
 position = Vector2(484, 1)
@@ -129,11 +128,5 @@ position = Vector2(-35, 2)
 
 [node name="Hole" parent="." instance=ExtResource("6_dlb8f")]
 position = Vector2(352, 48)
-
-[node name="Hole2" parent="." instance=ExtResource("6_dlb8f")]
-position = Vector2(335, 37)
-
-[node name="Hole3" parent="." instance=ExtResource("6_dlb8f")]
-position = Vector2(353, 25)
 
 [connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]
