@@ -67,5 +67,11 @@ func _shoot():
 
 
 func hit(_damage):
-	SoundManager.play("enemy", "die")
-	queue_free()
+	if enabled:
+		SoundManager.play("enemy", "die")
+		queue_free()
+
+
+func destroy():
+	if enabled:
+		queue_free()

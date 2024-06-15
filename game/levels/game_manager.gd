@@ -8,6 +8,12 @@ extends Node2D
 
 var holes : Array
 
+var scene_manager
+
+
+func init(scene):
+	scene_manager = scene
+
 
 func _ready():
 	holes = get_tree().get_nodes_in_group("hole")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=7 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_20xix"]
 [ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_nectp"]
+[ext_resource type="Script" path="res://game/killbox.gd" id="3_11x1t"]
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="3_d65yc"]
-[ext_resource type="PackedScene" uid="uid://cyi43lciv03ed" path="res://game/enemy/octave/octave_enemy.tscn" id="4_b8tic"]
 [ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="5_7mo58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
+size = Vector2(20, 273)
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -33,21 +36,49 @@ offset_right = 160.0
 offset_bottom = 144.0
 color = Color(0.745098, 0.843137, 0.913725, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Camera2D"]
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+border_color = Color(0.366698, 0.477396, 1, 1)
+
+[node name="Killbox" type="Area2D" parent="Camera2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_11x1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(-137, -3)
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(4, -145)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(142, -6)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(1, 135)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_q5sfn")
 
 [node name="Player" parent="." instance=ExtResource("3_d65yc")]
 position = Vector2(-71, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("4_b8tic")]
-position = Vector2(97, 34)
-y_range_min = -20
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 920.0
+offset_bottom = 64.0
 
-[node name="Enemy2" parent="." instance=ExtResource("4_b8tic")]
-position = Vector2(126, -38)
-y_range_min = -20
+[node name="Enemy" parent="." instance=ExtResource("5_7mo58")]
+position = Vector2(223, -1)
 
-[node name="Enemy3" parent="." instance=ExtResource("5_7mo58")]
-position = Vector2(157, 20)
-
-[node name="Enemy4" parent="." instance=ExtResource("5_7mo58")]
-position = Vector2(97, 2)
+[connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]

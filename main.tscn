@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=18 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="3_twdqf"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
+[ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_npbsp"]
 viewport_path = NodePath("SubViewport")
@@ -106,7 +107,6 @@ tracks = Array[ExtResource("3_twdqf")]([SubResource("Resource_5hsw7")])
 title = "Debug"
 initial_position = 2
 size = Vector2i(1024, 1024)
-visible = false
 unresizable = true
 theme = ExtResource("2_n72wt")
 
@@ -172,3 +172,24 @@ offset_right = 66.0
 offset_bottom = 23.0
 text = "asdfasdf"
 script = ExtResource("3_8gron")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DebugWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -160.0
+offset_right = 512.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="DebugWindow/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1024, 320)
+render_target_update_mode = 4
+script = ExtResource("11_pd3vo")
+
+[node name="Camera2D" type="Camera2D" parent="DebugWindow/SubViewportContainer/SubViewport"]

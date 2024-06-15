@@ -13,3 +13,7 @@ func _physics_process(_delta):
 
 func _on_hurtbox_hit():
 	queue_free()
+
+
+func destroy():
+	queue_free()
