@@ -41,17 +41,19 @@ var is_dead := false
 
 
 func _physics_process(delta):
-	if not is_dead:
-		_get_accel(delta)
-	
+	_get_accel(delta)
 	_apply_velocity()
-	_check_bounds()
-	_fire(delta)
+	
+	if not is_dead:
+		_check_bounds()
+		_fire(delta)
 
 
 func _die():
 	$AnimatedSprite2D.play("die")
-	velocity = Vector2(0, 0)
+	is_dead = true
+	velocity = Vector2.ZERO
+	accel = Vector2.ZERO
 	emit_signal("dead")
 
 
@@ -95,14 +97,14 @@ func _get_accel(delta):
 	elif Input.is_action_just_released("Fall"):
 		$AnimatedSprite2D.end_fall()
 	
-	if Input.is_action_pressed("Fall"):
+	if Input.is_action_pressed("Fall") or is_dead:
 		accel.y += gravity_fall
 	else:
 		accel.y += gravity
 	
 	_flap(delta)
 	
-	accel.x = Input.get_axis("Left", "Right") * horizontal_accel
+	accel.x = 0 if is_dead else Input.get_axis("Left", "Right") * horizontal_accel
 
 
 func _apply_velocity():
