@@ -32,6 +32,8 @@ var max_input_cache := 0.2
 
 var wall_bounce := 0.25
 
+var is_dead := false
+
 @export var bullet_scene : PackedScene
 @export var fire_sound : AudioStream
 
@@ -39,13 +41,17 @@ var wall_bounce := 0.25
 
 
 func _physics_process(delta):
-	_get_accel(delta)
+	if not is_dead:
+		_get_accel(delta)
+	
 	_apply_velocity()
 	_check_bounds()
 	_fire(delta)
 
 
 func _die():
+	$AnimatedSprite2D.play("die")
+	velocity = Vector2(0, 0)
 	emit_signal("dead")
 
 
@@ -106,7 +112,7 @@ func _apply_velocity():
 	if abs(velocity.x) > max_speed_x:
 		velocity.x = max_speed_x * sign(velocity.x)
 	
-	if Input.is_action_pressed("Fall"):
+	if Input.is_action_pressed("Fall") or is_dead:
 		velocity.y = min(velocity.y, max_speed_y_fall)
 	else:
 		velocity.y = min(velocity.y, max_speed_y)

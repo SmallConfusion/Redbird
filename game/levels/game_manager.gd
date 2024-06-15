@@ -62,4 +62,5 @@ func win():
 
 
 func restart():
+	await get_tree().create_timer(3.0).timeout
 	scene_manager.load_menu()

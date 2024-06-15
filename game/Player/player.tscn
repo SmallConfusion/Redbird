@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://opsuu1r64pm7"]
+[gd_scene load_steps=25 format=3 uid="uid://opsuu1r64pm7"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ritqa"]
 [ext_resource type="PackedScene" uid="uid://d1wsdgfkgckpp" path="res://game/bullet/bullet.tscn" id="2_g5kih"]
 [ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/player/bird_sprites.png" id="2_mwpah"]
 [ext_resource type="Script" path="res://game/player/player_animation_manager.gd" id="3_8w1wh"]
+[ext_resource type="Texture2D" uid="uid://cuvughc2m8jcy" path="res://game/player/bird_die.png" id="4_kqj2b"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="5_1mh6s"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="7_ntu7r"]
 [ext_resource type="AudioStream" uid="uid://bouamde1nbho" path="res://game/player/shoot.wav" id="8_dgmrw"]
@@ -53,6 +54,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kqj2b")
+}],
+"loop": true,
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
@@ -120,6 +129,7 @@ fire_sound = SubResource("AudioStreamWAV_qdpfe")
 z_index = 10
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_d1s45")
+animation = &"die"
 autoplay = "default"
 script = ExtResource("3_8w1wh")
 

@@ -11,14 +11,14 @@ void fragment() {
 	vec4 color = texture(screen_texture, UV);
 	vec4 viewport_color = texture(viewport, UV);
 	
-	color *= vec4(0.65, 0.65, 0.65, 1);
-	
-	color.r = max(CLEAR_R, color.r);
-	color.g = max(CLEAR_G, color.g);
-	color.b = max(CLEAR_B, color.b);
-	
-	if (viewport_color != vec4(0, 0, 0, 1)) {
+	if (viewport_color.rgb != vec3(0, 0, 0)) {
 		color = viewport_color;
+	} else {
+		color *= vec4(0.65, 0.65, 0.65, 1);
+		
+		color.r = max(CLEAR_R, color.r);
+		color.g = max(CLEAR_G, color.g);
+		color.b = max(CLEAR_B, color.b);
 	}
 	
 	COLOR = color;
