@@ -86,6 +86,7 @@ func _shoot():
 
 func hit(_damage):
 	if enabled:
+		game_scene.score += 200
 		SoundManager.play("octave_enemy", "die")
 		queue_free()
 

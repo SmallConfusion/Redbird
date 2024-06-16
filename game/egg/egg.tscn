@@ -1,13 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2bvdeyhcyp54"]
+[gd_scene load_steps=7 format=3 uid="uid://b2bvdeyhcyp54"]
 
 [ext_resource type="Texture2D" uid="uid://dp7wrtn5y7o3x" path="res://game/egg/egg.png" id="1_ci4g7"]
 [ext_resource type="Script" path="res://game/egg/egg.gd" id="1_xn4ye"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_xlfhs"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_j6y5m"]
 [ext_resource type="AudioStream" uid="uid://b7r43bvggvxvd" path="res://game/egg/success.wav" id="5_jtmmm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgo8"]
-size = Vector2(12, 16)
 
 [sub_resource type="Resource" id="Resource_wee6p"]
 script = ExtResource("4_j6y5m")
@@ -25,8 +22,8 @@ texture = ExtResource("1_ci4g7")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_rfgo8")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(2, -7, 3, -7, 3, -6, 4, -6, 4, -4, 5, -4, 5, -1, 6, -1, 6, 6, 5, 6, 5, 7, 4, 7, 4, 8, -4, 8, -4, 7, -5, 7, -5, 6, -6, 6, -6, -1, -5, -1, -5, -4, -4, -4, -4, -6, -3, -6, -3, -7, -2, -7, -2, -8, 2, -8)
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_xlfhs")

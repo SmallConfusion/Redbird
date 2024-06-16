@@ -75,6 +75,7 @@ func _handle_fire(delta):
 
 func hit(_damage):
 	if enabled:
+		game_scene.score += 100
 		SoundManager.play("basic_enemy", "die")
 		queue_free()
 

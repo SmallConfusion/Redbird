@@ -20,6 +20,8 @@ var wave_position = INF
 
 var started := false
 
+var score := 0
+
 func init(scene):
 	scene_manager = scene
 
@@ -70,7 +72,7 @@ func get_pull(check_position : Vector2):
 
 
 func get_bounds(n, s, w, e):
-	return [-40 + n, 64 - s, -80 + w + get_x_offset(), 80 - e + get_x_offset()]
+	return [-41 + n, 64 - s, -80 + w + get_x_offset(), 80 - e + get_x_offset()]
 
 
 func get_x_offset():
@@ -95,3 +97,20 @@ func restart():
 
 func get_progress():
 	return $Camera2D.position.x / (waves[len(waves)-1].position.x - 80)
+
+
+func get_remaining_waves() -> int:
+	return len(waves) - wave - 1
+
+
+func get_remaining_enemies() -> int:
+	var enemies = 0
+	
+	for i in range(wave, len(waves)):
+		enemies += waves[i].number_of_enemies()
+	
+	return enemies - 1
+
+
+func get_bullet_count() -> int:
+	return len(get_tree().get_nodes_in_group("bullet"))

@@ -1,45 +1,233 @@
-[gd_scene load_steps=4 format=3 uid="uid://4dh527vyy6ak"]
+[gd_scene load_steps=6 format=3 uid="uid://4dh527vyy6ak"]
 
 [ext_resource type="Script" path="res://game/levels/stats.gd" id="1_sd7w8"]
 [ext_resource type="PackedScene" uid="uid://c3ju6hsjwfrdb" path="res://vfx/binary_counter/binary_counter.tscn" id="2_njfsu"]
+[ext_resource type="Texture2D" uid="uid://cxyxuyg3ueflv" path="res://Sprite-0001.png" id="2_p22po"]
 [ext_resource type="Texture2D" uid="uid://cj77wfl2cnrbd" path="res://vfx/progress_indicator.png" id="3_ylldy"]
+[ext_resource type="Script" path="res://vfx/clock.gd" id="4_ev0ta"]
 
 [node name="Overlay" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_sd7w8")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_top = -6.0
 offset_right = 160.0
-offset_bottom = 32.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
+offset_bottom = 29.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
-[node name="FPSCounter" parent="ColorRect2" instance=ExtResource("2_njfsu")]
-width = 4
-height = 2
+[node name="NinePatchRect2" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 29.0
+offset_bottom = 17.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
-[node name="TimeCounter" parent="ColorRect2" instance=ExtResource("2_njfsu")]
-position = Vector2(0, 4)
+[node name="TimeCounter" parent="ColorRect2/NinePatchRect2" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 4)
 width = 8
 height = 4
 
-[node name="MsecCounter" parent="ColorRect2" instance=ExtResource("2_njfsu")]
-position = Vector2(0, 12)
+[node name="NinePatchRect3" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 11.0
+offset_bottom = 25.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MsecCounter" parent="ColorRect2/NinePatchRect3" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 3)
 width = 4
 height = 4
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 11.0
+offset_bottom = 13.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="FPSCounter" parent="ColorRect2/NinePatchRect" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 4)
+width = 4
+height = 2
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 4.0
+offset_right = 160.0
+offset_bottom = 14.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="EnemyCounter" parent="ColorRect2/NinePatchRect8" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 4)
+width = 4
+height = 2
+
+[node name="NinePatchRect9" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 4.0
+offset_right = 150.0
+offset_bottom = 14.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="BulletCounter" parent="ColorRect2/NinePatchRect9" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 4)
+width = 6
+height = 2
+
+[node name="NinePatchRect10" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 13.0
+offset_right = 160.0
+offset_bottom = 25.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ProgressCounter" parent="ColorRect2/NinePatchRect10" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 3)
+width = 6
+height = 3
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_horizontal = 2
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="ColorRect2/NinePatchRect4"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 42.0
+offset_bottom = 15.0
+text = "88:88:88"
+script = ExtResource("4_ev0ta")
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 37.0
+grow_horizontal = 2
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ScoreCounter" type="Label" parent="ColorRect2/NinePatchRect5"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 50.0
+offset_bottom = 10.0
+text = "00000000"
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 24.0
+offset_right = -20.0
+offset_bottom = 37.0
+grow_horizontal = 2
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="WaveCounter" type="Label" parent="ColorRect2/NinePatchRect7"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 10.0
+text = "Waves: 2"
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 29.0
+offset_bottom = 25.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="BinScoreCounter" parent="ColorRect2/NinePatchRect6" instance=ExtResource("2_njfsu")]
+unique_name_in_owner = true
+position = Vector2(2, 3)
+width = 8
+height = 2
+
+[node name="ColorRect3" type="NinePatchRect" parent="."]
 offset_top = 136.0
 offset_right = 160.0
-offset_bottom = 144.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect3"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 159.0
-offset_bottom = 8.0
-color = Color(0.184314, 0.12549, 0.254902, 1)
+offset_bottom = 152.0
+texture = ExtResource("2_p22po")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="ColorRect3" type="ColorRect" parent="ColorRect3"]
 layout_mode = 0

@@ -35,7 +35,6 @@ var wall_bounce := 0.25
 var is_dead := false
 
 @export var bullet_scene : PackedScene
-@export var fire_sound : AudioStream
 
 @onready var game_scene := $"../"
 
@@ -58,12 +57,13 @@ func _physics_process(delta):
 
 
 func _die():
-	SoundManager.play("player", "death")
-	$AnimatedSprite2D.die()
-	is_dead = true
-	velocity = Vector2.ZERO
-	accel = Vector2.ZERO
-	emit_signal("dead")
+	if not is_dead:
+		SoundManager.play("player", "death")
+		$AnimatedSprite2D.die()
+		is_dead = true
+		velocity = Vector2.ZERO
+		accel = Vector2.ZERO
+		emit_signal("dead")
 
 
 func hit(_damage):
@@ -73,6 +73,7 @@ func _fire(delta):
 	shoot_timer -= delta
 	
 	if (Input.is_action_pressed("Fire") or shoot_cache) and shoot_timer <= 0:
+		game_scene.score += 5
 		shoot_timer = shoot_cooldown
 		shoot_cache = false
 		
@@ -88,6 +89,7 @@ func _flap(delta):
 	flap_timer -= delta
 	
 	if (Input.is_action_pressed("Flap") or flap_cache) and flap_timer <= 0 and not is_dead:
+		game_scene.score += 5
 		flap_timer = flap_cooldown
 		flap_cache = false
 		
