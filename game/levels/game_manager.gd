@@ -28,6 +28,8 @@ func _ready():
 	get_node(player).connect("dead", restart)
 	
 	waves = $Waves.get_children()
+	
+	$Overlay.game_manager = self
 
 
 func _physics_process(_delta):
@@ -81,3 +83,7 @@ func win():
 func restart():
 	await get_tree().create_timer(3.0).timeout
 	scene_manager.load_menu()
+
+
+func get_progress():
+	return $Camera2D.position.x / (waves[len(waves)-1].position.x - 80)

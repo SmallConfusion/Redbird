@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4dh527vyy6ak"]
+[gd_scene load_steps=4 format=3 uid="uid://4dh527vyy6ak"]
 
 [ext_resource type="Script" path="res://game/levels/stats.gd" id="1_sd7w8"]
 [ext_resource type="PackedScene" uid="uid://c3ju6hsjwfrdb" path="res://vfx/binary_counter/binary_counter.tscn" id="2_njfsu"]
+[ext_resource type="Texture2D" uid="uid://cj77wfl2cnrbd" path="res://vfx/progress_indicator.png" id="3_ylldy"]
 
 [node name="Overlay" type="CanvasLayer"]
 layer = 10
@@ -31,3 +32,30 @@ offset_top = 136.0
 offset_right = 160.0
 offset_bottom = 144.0
 color = Color(0.745098, 0.843137, 0.913725, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 159.0
+offset_bottom = 8.0
+color = Color(0.184314, 0.12549, 0.254902, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 156.0
+offset_bottom = 6.0
+color = Color(0.745098, 0.843137, 0.913725, 1)
+
+[node name="ProgressIndicator" type="TextureRect" parent="ColorRect3"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 4.0
+texture = ExtResource("3_ylldy")
+stretch_mode = 2
