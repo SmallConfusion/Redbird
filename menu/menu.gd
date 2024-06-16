@@ -8,7 +8,7 @@ func init(scene):
 
 
 func _ready():
-	for button in get_children(true):
+	for button in $HBoxContainer.get_children():
 		if button is LoadButton:
 			button.init(scene_manager)
 	

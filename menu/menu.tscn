@@ -39,53 +39,60 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_top = 12.0
-offset_right = 37.0
-offset_bottom = 49.0
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 37.0
 grow_horizontal = 2
-text = "Game :3
-arrow keys
-and Z to
-select"
+text = "Redbird"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 63.0
-offset_right = 67.0
-offset_bottom = 78.0
+[node name="CheckButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = 47.0
+offset_right = 40.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quality High"
+script = ExtResource("3_6t18n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -7.5
+offset_right = 26.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "1"
 script = ExtResource("2_og1g8")
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 63.0
-offset_right = 88.0
-offset_bottom = 78.0
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "2
 "
 script = ExtResource("2_og1g8")
 level = 1
 
-[node name="Button3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 63.0
-offset_right = 111.0
-offset_bottom = 78.0
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "3
 "
 script = ExtResource("2_og1g8")
 level = 2
 last_button = true
-
-[node name="CheckButton" type="CheckButton" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 103.0
-offset_right = 158.0
-offset_bottom = 127.0
-text = "Performance mode"
-script = ExtResource("3_6t18n")

@@ -1,6 +1,15 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cvo518bnwbvlf"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cvo518bnwbvlf"]
 
 [ext_resource type="FontFile" uid="uid://digx05vcj7vk7" path="res://dogicapixel.ttf" id="1_o1c4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeo3a"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+border_color = Color(0.745098, 0.843137, 0.913725, 1)
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arbuo"]
 content_margin_left = 4.0
@@ -8,6 +17,7 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.0352941, 0.227451, 0.329412, 1)
+draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -42,10 +52,12 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 8
 Button/fonts/font = ExtResource("1_o1c4v")
+Button/styles/disabled = SubResource("StyleBoxFlat_xeo3a")
 Button/styles/focus = SubResource("StyleBoxFlat_arbuo")
 Button/styles/hover = SubResource("StyleBoxFlat_yakek")
 Button/styles/normal = SubResource("StyleBoxFlat_yakek")
 Button/styles/pressed = SubResource("StyleBoxFlat_yakek")
+CheckButton/icons/checked = null
 Label/colors/font_color = Color(0.745098, 0.843137, 0.913725, 1)
 Label/font_sizes/font_size = 8
 Label/fonts/font = ExtResource("1_o1c4v")
