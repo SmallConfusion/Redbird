@@ -55,7 +55,7 @@ func _handle_fire(delta):
 	if bullet_timer <= 0:
 		bullet_timer = bullet_cooldown
 		$AnimatedSprite2D.play("fire")
-		SoundManager.play("enemy", "fire")
+		SoundManager.play("octave_enemy", "fire")
 		_shoot()
 
 
@@ -73,7 +73,7 @@ func _shoot():
 
 func hit(_damage):
 	if enabled:
-		SoundManager.play("enemy", "die")
+		SoundManager.play("octave_enemy", "die")
 		queue_free()
 
 

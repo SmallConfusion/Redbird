@@ -107,7 +107,7 @@ bullet_scene = ExtResource("2_w2d2t")
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_78ltf")
-label = "enemy"
+label = "octave_enemy"
 bus = "sfx"
 events = Array[ExtResource("4_bb3ir")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
 

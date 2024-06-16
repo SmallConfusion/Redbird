@@ -56,12 +56,12 @@ func _handle_fire(delta):
 		instance.position = global_position
 		game_scene.add_child(instance)
 		
-		SoundManager.play("enemy", "fire")
+		SoundManager.play("basic_enemy", "fire")
 
 
 func hit(_damage):
 	if enabled:
-		SoundManager.play("enemy", "die")
+		SoundManager.play("basic_enemy", "die")
 		queue_free()
 
 func destroy():
