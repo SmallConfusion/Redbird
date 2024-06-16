@@ -2,7 +2,7 @@ extends Area2D
 
 signal hit
 
-var damage := 1
+@export var damage := 1
 
 var used := false
 

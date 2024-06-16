@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_20xix"]
-[ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_nectp"]
+[ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_bqf1a"]
 [ext_resource type="Script" path="res://game/killbox.gd" id="3_11x1t"]
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="3_d65yc"]
 [ext_resource type="PackedScene" uid="uid://5vkpxwgvm6c7" path="res://vfx/stars/stars.tscn" id="3_olfgw"]
@@ -17,7 +17,7 @@ size = Vector2(20, 273)
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_20xix")
-hole_pull_curve = ExtResource("2_nectp")
+hole_pull_curve = ExtResource("2_bqf1a")
 finish = NodePath("Waves/WaveFinal/Egg")
 player = NodePath("Player")
 
