@@ -66,3 +66,13 @@ text = "3
 "
 script = ExtResource("2_og1g8")
 level = 2
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 103.0
+offset_right = 158.0
+offset_bottom = 127.0
+text = "Performance mode"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

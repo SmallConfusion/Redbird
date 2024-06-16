@@ -54,3 +54,7 @@ func load_level(number):
 
 func _input(event):
 	%SubViewport.push_input(event)
+
+
+func set_performance_mode(state):
+	$PostProcessing.visible = state
