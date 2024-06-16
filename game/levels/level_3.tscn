@@ -20,6 +20,7 @@ script = ExtResource("1_yaoj1")
 hole_pull_curve = ExtResource("2_ak36p")
 finish = NodePath("Waves/WaveFinal/Egg")
 player = NodePath("Player")
+level_index = 2
 
 [node name="Stars" parent="." instance=ExtResource("3_bfhji")]
 

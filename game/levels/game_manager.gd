@@ -9,6 +9,8 @@ extends Node2D
 @export_node_path("Node2D") var finish
 @export_node_path("Node2D") var player
 
+@export var level_index := 0
+
 var holes : Array
 
 var scene_manager
@@ -72,7 +74,7 @@ func get_pull(check_position : Vector2):
 
 
 func get_bounds(n, s, w, e):
-	return [-41 + n, 64 - s, -80 + w + get_x_offset(), 80 - e + get_x_offset()]
+	return [-41 + n, 63 - s, -80 + w + get_x_offset(), 80 - e + get_x_offset()]
 
 
 func get_x_offset():
@@ -87,6 +89,7 @@ func get_x_speed():
 
 
 func win():
+	scene_manager.beat_level(level_index)
 	scene_manager.load_menu()
 
 

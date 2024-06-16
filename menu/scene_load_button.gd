@@ -2,18 +2,21 @@ extends Button
 class_name LoadButton
 
 @export var level := 0
-@export var focus := false
+@export var last_button := false
 
 var scene_manager
 
 func init(scene):
 	scene_manager = scene
 
+	if level > scene_manager.unlocked_level:
+		disabled = true
+	elif level == scene_manager.unlocked_level or \
+		(level < scene_manager.unlocked_level and last_button):
+			
+		grab_focus()
 
 func _ready():
-	if focus:
-		grab_focus()
-	
 	connect("focus_exited", _focus_exited)
 
 func _focus_exited():

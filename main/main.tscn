@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=34 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -15,7 +15,9 @@
 [ext_resource type="Shader" path="res://vfx/screen_transition.gdshader" id="6_t62yq"]
 [ext_resource type="AudioStream" uid="uid://d12syggdqbhdf" path="res://music/main.ogg" id="9_js5yk"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
+[ext_resource type="Script" path="res://debug/unlock_button.gd" id="15_7qxnp"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="15_ev3wf"]
+[ext_resource type="Script" path="res://debug/menu_button.gd" id="16_dn6qv"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="16_wc8vy"]
 [ext_resource type="AudioStream" uid="uid://ry6xgk32slty" path="res://main/select.wav" id="17_cbl0k"]
 [ext_resource type="AudioStream" uid="uid://crocsp47wkmws" path="res://main/input.wav" id="18_getft"]
@@ -249,6 +251,20 @@ render_target_update_mode = 4
 script = ExtResource("11_pd3vo")
 
 [node name="Camera2D" type="Camera2D" parent="DebugWindow/SubViewportContainer/SubViewport"]
+
+[node name="Button" type="Button" parent="DebugWindow"]
+offset_top = 16.0
+offset_right = 111.0
+offset_bottom = 31.0
+text = "Unlock all levels"
+script = ExtResource("15_7qxnp")
+
+[node name="Button2" type="Button" parent="DebugWindow"]
+offset_top = 32.0
+offset_right = 37.0
+offset_bottom = 47.0
+text = "Menu"
+script = ExtResource("16_dn6qv")
 
 [node name="PostProcessing" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_eegpy")

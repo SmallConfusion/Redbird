@@ -12,6 +12,8 @@ var shader_t = INF
 
 var performance_mode = false
 
+var unlocked_level := 0
+
 func _ready():
 	load_menu()
 	MusicManager.updated.connect(on_music_manager_updated)
@@ -74,3 +76,7 @@ func _input(event):
 func set_performance_mode(state):
 	performance_mode = state
 	$PostProcessing.visible = not state
+
+
+func beat_level(level):
+	unlocked_level = max(level+1, unlocked_level)

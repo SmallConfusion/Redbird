@@ -57,7 +57,6 @@ offset_right = 67.0
 offset_bottom = 78.0
 text = "1"
 script = ExtResource("2_og1g8")
-focus = true
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
@@ -80,6 +79,7 @@ text = "3
 "
 script = ExtResource("2_og1g8")
 level = 2
+last_button = true
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
