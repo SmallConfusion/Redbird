@@ -104,6 +104,8 @@ size = Vector2(3, 8)
 texture_filter = 1
 script = ExtResource("1_wcql6")
 bullet_scene = ExtResource("2_w2d2t")
+y_range_min = 56
+y_range_max = -32
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_78ltf")

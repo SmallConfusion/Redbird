@@ -7,8 +7,8 @@ extends Node2D
 var accel_speed = 0.01
 var max_speed = 0.2
 
-var bullet_timer := 1.0
 @export var bullet_cooldown := 1.0
+var bullet_timer : float
 
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
@@ -24,6 +24,7 @@ var noise_influence := 20.0
 func _ready():
 	randomize()
 	noise.seed = randi()
+	bullet_timer = randf_range(0, bullet_cooldown)
 	
 
 
@@ -54,10 +55,9 @@ func _move():
 	
 	position += velocity
 	
-	#var bounds = game_scene.get_bounds(1, 2, 4, 4)
-	#
-	#position.x = clamp(position.x, bounds[2], bounds[3])
-	#position.y = clamp(position.y, bounds[0], bounds[1])
+	var bounds = game_scene.get_bounds(2, 2, 4, 4)
+	
+	global_position.y = clamp(global_position.y, bounds[0], bounds[1])
 
 
 func _handle_fire(delta):

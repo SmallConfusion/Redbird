@@ -11,8 +11,8 @@ var spread := deg_to_rad(120)
 var accel_speed := 0.03
 var max_speed := 0.4
 
-var bullet_timer := 1.0
-var bullet_cooldown := 3.0
+var bullet_timer : float
+@export var bullet_cooldown := 3.0
 
 var velocity := Vector2(0, 0)
 var accel := Vector2(0, 0)
@@ -23,6 +23,12 @@ var enabled := false
 
 var noise := FastNoiseLite.new()
 var noise_influence := 20.0
+
+
+func _ready():
+	randomize()
+	noise.seed = randi()
+	bullet_timer = randf_range(0, bullet_cooldown)
 
 
 func _physics_process(delta):
@@ -51,10 +57,9 @@ func _move():
 	
 	global_position += velocity
 	
-	#var bounds = game_scene.get_bounds(6, 5, 5, 5)
-	#
-	#position.x = clamp(position.x, bounds[2], bounds[3])
-	#position.y = clamp(position.y, bounds[0], bounds[1])
+	var bounds = game_scene.get_bounds(6, 5, 5, 5)
+	
+	global_position.y = clamp(global_position.y, bounds[0], bounds[1])
 	
 
 func _handle_fire(delta):
