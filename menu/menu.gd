@@ -2,9 +2,12 @@ extends Control
 
 var scene_manager
 
+
 func init(scene):
 	scene_manager = scene
 
-func _process(_delta):
-	if Input.is_action_just_pressed("Fire"):
-		scene_manager.load_level()
+
+func _ready():
+	for button in get_children(true):
+		if button is LoadButton:
+			button.init(scene_manager)

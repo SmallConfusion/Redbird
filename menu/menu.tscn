@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://20ok8gqsfhqm"]
+[gd_scene load_steps=3 format=3 uid="uid://20ok8gqsfhqm"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_xhay3"]
+[ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_og1g8"]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -17,31 +18,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.184314, 0.12549, 0.254902, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -25.0
-offset_top = 22.0
-offset_right = 39.0
-offset_bottom = 45.0
+offset_left = -28.0
+offset_top = 12.0
+offset_right = 37.0
+offset_bottom = 49.0
 grow_horizontal = 2
-text = "Game :3"
+text = "Game :3
+arrow keys
+and Z to
+select"
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = -7.0
-offset_right = 45.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play Z"
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 63.0
+offset_right = 67.0
+offset_bottom = 78.0
+text = "1"
+script = ExtResource("2_og1g8")
+focus = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 63.0
+offset_right = 102.0
+offset_bottom = 78.0
+text = "2
+"
+script = ExtResource("2_og1g8")
+level = 1

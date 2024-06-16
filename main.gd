@@ -32,7 +32,7 @@ func on_music_manager_updated():
 	MusicManager.play("music", "main", 0)
 
 
-func load_scene(scene):
+func load_scene(scene : PackedScene):
 	if loaded_node:
 		loaded_node.queue_free()
 	
@@ -48,6 +48,9 @@ func load_scene(scene):
 	loaded_node = instance
 
 
-# temp level load
-func load_level():
-	load_scene(levels[1])
+func load_level(number):
+	load_scene(levels[number])
+
+
+func _input(event):
+	%SubViewport.push_input(event)
