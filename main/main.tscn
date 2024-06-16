@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=32 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -13,11 +13,25 @@
 [ext_resource type="PackedScene" uid="uid://bfxb5ikio7qa6" path="res://game/levels/level_2.tscn" id="4_n3ouh"]
 [ext_resource type="PackedScene" uid="uid://es1vjbxmkae6" path="res://game/levels/level_3.tscn" id="5_7dyse"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
+[ext_resource type="Shader" path="res://vfx/screen_transition.gdshader" id="6_t62yq"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="15_ev3wf"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="16_wc8vy"]
 [ext_resource type="AudioStream" uid="uid://ry6xgk32slty" path="res://main/select.wav" id="17_cbl0k"]
 [ext_resource type="AudioStream" uid="uid://crocsp47wkmws" path="res://main/input.wav" id="18_getft"]
+
+[sub_resource type="Gradient" id="Gradient_vb0eu"]
+offsets = PackedFloat32Array(0.605)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uwfqi"]
+gradient = SubResource("Gradient_vb0eu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ul62x"]
+shader = ExtResource("6_t62yq")
+shader_parameter/anim_time = 2.5
+shader_parameter/t = 1.0
+shader_parameter/old_texture = SubResource("GradientTexture1D_uwfqi")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_npbsp"]
 viewport_path = NodePath("SubViewport")
@@ -86,6 +100,18 @@ disable_3d = true
 handle_input_locally = false
 size = Vector2i(160, 144)
 render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+layer = 100
+
+[node name="SceneChangeShader" type="ColorRect" parent="SubViewport/CanvasLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ul62x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

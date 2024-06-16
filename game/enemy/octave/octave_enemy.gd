@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 
 func _move():
-	var y = remap(sin(Time.get_ticks_msec() / 1000), -1, 1, y_range_min, y_range_max)
+	var y = remap(sin(Time.get_ticks_msec() / 1000.0), -1, 1, y_range_min, y_range_max)
 	var x = game_scene.get_x_offset() + 60
 	
 	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 100.0) * noise_influence

@@ -8,6 +8,10 @@ var debug_mode = false
 
 var loaded_node
 
+var shader_t = INF
+
+var performance_mode = false
+
 func _ready():
 	load_menu()
 	MusicManager.updated.connect(on_music_manager_updated)
@@ -19,10 +23,13 @@ func _ready():
 	$DebugWindow.visible = false
 
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("Debug"):
 		$DebugWindow.visible = not $DebugWindow.visible
-
+	
+	%SceneChangeShader.material.set("shader_parameter/t", shader_t)
+	shader_t += delta
+	
 
 func load_menu():
 	load_scene(menu)
@@ -34,7 +41,13 @@ func on_music_manager_updated():
 
 func load_scene(scene : PackedScene):
 	if loaded_node:
+		var texture = %SubViewport.get_texture().get_image()
+		texture = ImageTexture.create_from_image(texture)
+		
+		%SceneChangeShader.material.set("shader_parameter/old_texture", texture)
+		
 		loaded_node.queue_free()
+		shader_t = 0
 	
 	var instance = scene.instantiate()
 	
@@ -43,9 +56,11 @@ func load_scene(scene : PackedScene):
 	else:
 		print("Warning: instance has no init function")
 	
-	%SubViewport.add_child(instance)
-	
 	loaded_node = instance
+	
+	await get_tree().process_frame
+	
+	%SubViewport.add_child(instance)
 
 
 func load_level(number):
@@ -57,4 +72,5 @@ func _input(event):
 		%SubViewport.push_input(event)
 
 func set_performance_mode(state):
-	$PostProcessing.visible = state
+	performance_mode = state
+	$PostProcessing.visible = not state

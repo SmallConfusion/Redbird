@@ -76,5 +76,3 @@ offset_right = 158.0
 offset_bottom = 127.0
 text = "Performance mode"
 script = ExtResource("3_6t18n")
-
-[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
