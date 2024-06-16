@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://btunljt5bo3aa"]
+
+[ext_resource type="Script" path="res://game/enemy/fish/fish_enemy.gd" id="1_u78ib"]
+[ext_resource type="PackedScene" uid="uid://dwi87tf3frhy7" path="res://game/enemy/fish/big_bullet_fish.tscn" id="2_ocnl4"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_h0vxa"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_iaxrr"]
+[ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="5_pq6e1"]
+[ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="6_hl8qb"]
+[ext_resource type="Texture2D" uid="uid://cis8xlx3txxiv" path="res://game/enemy/fish/fish.png" id="7_gvcwq"]
+[ext_resource type="Script" path="res://game/hitbox.gd" id="8_30mrh"]
+[ext_resource type="Script" path="res://game/hurtbox.gd" id="9_ai4sc"]
+
+[sub_resource type="Resource" id="Resource_4y7un"]
+script = ExtResource("4_iaxrr")
+name = "fire"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("5_pq6e1")])
+
+[sub_resource type="Resource" id="Resource_1j08k"]
+script = ExtResource("4_iaxrr")
+name = "die"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("6_hl8qb")])
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2yul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gvcwq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tdaj"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxs74"]
+size = Vector2(12, 11)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_u78ib")
+bullet_scene = ExtResource("2_ocnl4")
+bullet_cooldown = 0.4
+
+[node name="SoundBank" type="Node" parent="."]
+script = ExtResource("3_h0vxa")
+label = "basic_enemy"
+bus = "sfx"
+events = Array[ExtResource("4_iaxrr")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_u2yul")
+autoplay = "default"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_30mrh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1tdaj")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("9_ai4sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cxs74")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

@@ -96,3 +96,10 @@ text = "3
 script = ExtResource("2_og1g8")
 level = 2
 last_button = true
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "4"
+script = ExtResource("2_og1g8")
+level = 3
+last_button = true

@@ -12,7 +12,7 @@ var shader_t = INF
 
 var performance_mode = false
 
-var unlocked_level := 0
+var unlocked_level := 10
 
 func _ready():
 	load_menu()

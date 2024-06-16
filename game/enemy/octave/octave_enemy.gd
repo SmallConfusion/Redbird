@@ -66,7 +66,7 @@ func _handle_fire(delta):
 	bullet_timer -= delta
 	
 	if bullet_timer <= 0:
-		bullet_timer = bullet_cooldown
+		bullet_timer = bullet_cooldown + randf() * 0.1 * bullet_cooldown
 		$AnimatedSprite2D.play("fire")
 		SoundManager.play("octave_enemy", "fire")
 		_shoot()

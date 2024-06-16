@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcev151nwxoqc"]
+
+[ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_6syob"]
+[ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_q2pey"]
+[ext_resource type="PackedScene" uid="uid://5vkpxwgvm6c7" path="res://vfx/stars/stars.tscn" id="3_f841k"]
+[ext_resource type="PackedScene" uid="uid://4dh527vyy6ak" path="res://game/levels/overlay.tscn" id="4_6kct1"]
+[ext_resource type="Script" path="res://game/killbox.gd" id="5_aodwd"]
+[ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="6_leyog"]
+[ext_resource type="Script" path="res://game/levels/wave.gd" id="7_mbb6f"]
+[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="8_7agq5"]
+[ext_resource type="PackedScene" uid="uid://btunljt5bo3aa" path="res://game/enemy/fish/fish_enemy.tscn" id="9_qrfq6"]
+[ext_resource type="Script" path="res://game/hole/moving.gd" id="10_kpku7"]
+[ext_resource type="PackedScene" uid="uid://b2bvdeyhcyp54" path="res://game/egg/egg.tscn" id="11_4edgm"]
+[ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="12_gl033"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
+size = Vector2(20, 273)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_6syob")
+hole_pull_curve = ExtResource("2_q2pey")
+finish = NodePath("Waves/WaveFinal/Egg")
+player = NodePath("Player")
+level_index = 2
+
+[node name="Stars" parent="." instance=ExtResource("3_f841k")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.184314, 0.12549, 0.254902, 1)
+
+[node name="Overlay" parent="." instance=ExtResource("4_6kct1")]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Camera2D"]
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+border_color = Color(0.366698, 0.477396, 1, 1)
+
+[node name="Killbox" type="Area2D" parent="Camera2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("5_aodwd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(-137, -3)
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(4, -145)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(142, -6)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(1, 135)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="Player" parent="." instance=ExtResource("6_leyog")]
+position = Vector2(-71, 0)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 920.0
+offset_bottom = 64.0
+
+[node name="Waves" type="Node2D" parent="."]
+
+[node name="Wave2" type="Node2D" parent="Waves"]
+position = Vector2(130, 0)
+script = ExtResource("7_mbb6f")
+
+[node name="Enemy" parent="Waves/Wave2" instance=ExtResource("8_7agq5")]
+position = Vector2(-13, 14)
+
+[node name="Wave3" type="Node2D" parent="Waves"]
+position = Vector2(253, 0)
+script = ExtResource("7_mbb6f")
+
+[node name="Enemy2" parent="Waves/Wave3" instance=ExtResource("9_qrfq6")]
+position = Vector2(-19, 21)
+
+[node name="Enemy3" parent="Waves/Wave3" instance=ExtResource("8_7agq5")]
+position = Vector2(-51, -7)
+
+[node name="Wave4" type="Node2D" parent="Waves"]
+position = Vector2(368, -17)
+script = ExtResource("7_mbb6f")
+
+[node name="Enemy" parent="Waves/Wave4" instance=ExtResource("9_qrfq6")]
+position = Vector2(-23, 1)
+
+[node name="Enemy2" parent="Waves/Wave4" instance=ExtResource("8_7agq5")]
+position = Vector2(-50, 8)
+
+[node name="Enemy3" parent="Waves/Wave4" instance=ExtResource("8_7agq5")]
+position = Vector2(-50, 22)
+
+[node name="Enemy4" parent="Waves/Wave4" instance=ExtResource("8_7agq5")]
+position = Vector2(-50, 37)
+
+[node name="WaveFinal" type="Node2D" parent="Waves"]
+position = Vector2(432, 0)
+script = ExtResource("7_mbb6f")
+
+[node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("11_4edgm")]
+position = Vector2(-32, 0)
+
+[node name="Hole" parent="." instance=ExtResource("12_gl033")]
+position = Vector2(69, 49)
+script = ExtResource("10_kpku7")
+end_position = Vector2(0, -70)
+
+[node name="Hole3" parent="." instance=ExtResource("12_gl033")]
+position = Vector2(330, -23)
+
+[node name="Hole4" parent="." instance=ExtResource("12_gl033")]
+position = Vector2(330, 49)
+
+[connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]

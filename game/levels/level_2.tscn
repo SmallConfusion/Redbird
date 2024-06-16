@@ -107,11 +107,11 @@ position = Vector2(-35, 50)
 position = Vector2(-35, 34)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
-position = Vector2(510, 2)
+position = Vector2(496, 0)
 script = ExtResource("6_wixt4")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("8_4e070")]
-position = Vector2(-35, 2)
+position = Vector2(-32, 0)
 
 [node name="Hole" parent="." instance=ExtResource("9_v3gqs")]
 position = Vector2(225, 9)

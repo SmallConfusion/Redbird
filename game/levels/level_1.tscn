@@ -109,11 +109,11 @@ script = ExtResource("6_d2j5s")
 position = Vector2(-5, 31)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
-position = Vector2(484, 1)
+position = Vector2(459, 0)
 script = ExtResource("6_d2j5s")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("7_652e0")]
-position = Vector2(-35, 2)
+position = Vector2(-32, 0)
 
 [node name="Hole" parent="." instance=ExtResource("6_dlb8f")]
 position = Vector2(352, 48)

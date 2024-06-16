@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://es1vjbxmkae6"]
+[gd_scene load_steps=14 format=3 uid="uid://es1vjbxmkae6"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_yaoj1"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_0fgjt"]
@@ -7,9 +7,11 @@
 [ext_resource type="Script" path="res://game/killbox.gd" id="5_f80vm"]
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="6_vhtde"]
 [ext_resource type="Script" path="res://game/levels/wave.gd" id="7_fo836"]
+[ext_resource type="PackedScene" uid="uid://btunljt5bo3aa" path="res://game/enemy/fish/fish_enemy.tscn" id="9_1sr2e"]
 [ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="9_xna02"]
 [ext_resource type="PackedScene" uid="uid://b2bvdeyhcyp54" path="res://game/egg/egg.tscn" id="10_tt6jc"]
 [ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="11_2l7p6"]
+[ext_resource type="PackedScene" uid="uid://cyi43lciv03ed" path="res://game/enemy/octave/octave_enemy.tscn" id="11_xl8e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
 size = Vector2(20, 273)
@@ -78,21 +80,50 @@ offset_bottom = 64.0
 
 [node name="Waves" type="Node2D" parent="."]
 
-[node name="Wave1" type="Node2D" parent="Waves"]
-position = Vector2(138, 0)
+[node name="Wave2" type="Node2D" parent="Waves"]
+position = Vector2(167, 0)
 script = ExtResource("7_fo836")
 
-[node name="Enemy" parent="Waves/Wave1" instance=ExtResource("9_xna02")]
-position = Vector2(-16, 20)
+[node name="Enemy" parent="Waves/Wave2" instance=ExtResource("9_xna02")]
+position = Vector2(-60, 9)
+
+[node name="Enemy2" parent="Waves/Wave2" instance=ExtResource("9_xna02")]
+position = Vector2(-46, 25)
+
+[node name="Enemy3" parent="Waves/Wave2" instance=ExtResource("9_xna02")]
+position = Vector2(-43, 46)
+
+[node name="Enemy4" parent="Waves/Wave2" instance=ExtResource("9_xna02")]
+position = Vector2(-54, 60)
+
+[node name="Wave3" type="Node2D" parent="Waves"]
+position = Vector2(296, 0)
+script = ExtResource("7_fo836")
+
+[node name="Enemy" parent="Waves/Wave3" instance=ExtResource("9_1sr2e")]
+position = Vector2(-21, 11)
+
+[node name="Wave4" type="Node2D" parent="Waves"]
+position = Vector2(433, 3)
+script = ExtResource("7_fo836")
+
+[node name="Enemy2" parent="Waves/Wave4" instance=ExtResource("11_xl8e1")]
+position = Vector2(-7, 10)
+
+[node name="Enemy2" parent="Waves/Wave4/Enemy2" instance=ExtResource("11_xl8e1")]
+position = Vector2(-7, 10)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
-position = Vector2(510, 2)
+position = Vector2(505, 0)
 script = ExtResource("7_fo836")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("10_tt6jc")]
-position = Vector2(-35, 2)
+position = Vector2(-32, 0)
 
 [node name="Hole" parent="." instance=ExtResource("11_2l7p6")]
-position = Vector2(225, 9)
+position = Vector2(92, 27)
+
+[node name="Hole2" parent="." instance=ExtResource("11_2l7p6")]
+position = Vector2(337, 19)
 
 [connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]

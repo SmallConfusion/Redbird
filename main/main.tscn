@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=35 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="PackedScene" uid="uid://bfxb5ikio7qa6" path="res://game/levels/level_2.tscn" id="4_n3ouh"]
 [ext_resource type="PackedScene" uid="uid://es1vjbxmkae6" path="res://game/levels/level_3.tscn" id="5_7dyse"]
+[ext_resource type="PackedScene" uid="uid://dcev151nwxoqc" path="res://game/levels/level_4.tscn" id="6_ouojc"]
 [ext_resource type="Shader" path="res://vfx/screen_transition.gdshader" id="6_t62yq"]
 [ext_resource type="AudioStream" uid="uid://d12syggdqbhdf" path="res://music/main.ogg" id="9_js5yk"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
@@ -94,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ux161")
 menu = ExtResource("2_gmm5b")
-levels = Array[PackedScene]([ExtResource("3_j42tc"), ExtResource("4_n3ouh"), ExtResource("5_7dyse")])
+levels = Array[PackedScene]([ExtResource("3_j42tc"), ExtResource("4_n3ouh"), ExtResource("5_7dyse"), ExtResource("6_ouojc")])
 
 [node name="MusicBank" type="Node" parent="."]
 script = ExtResource("2_fe5tn")
