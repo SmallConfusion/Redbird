@@ -27,7 +27,7 @@ void fragment() {
 	if (t >= anim_time) {
 		COLOR = CLEAR;
 	} else {
-		float new_t = t / anim_time * (rand(vec2(UV.x)) * 0.2 + 1.0);
+		float new_t = t / anim_time * (rand(vec2(UV.x)) * 0.15 + 1.0);
 		new_t = clamp(new_t, 0, 1);
 		
 		vec2 uv = UV + vec2(0, -cubicEase(new_t));
