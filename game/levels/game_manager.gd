@@ -18,6 +18,8 @@ var wave := 0
 
 var wave_position = INF
 
+var started := false
+
 func init(scene):
 	scene_manager = scene
 
@@ -33,6 +35,12 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if Input.is_action_just_pressed("Flap"):
+		started = true
+	
+	if not started:
+		return
+	
 	if len(waves) > wave and waves[wave].number_of_enemies() == 0:
 		wave += 1
 		

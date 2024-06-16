@@ -39,8 +39,16 @@ var is_dead := false
 
 @onready var game_scene := $"../"
 
+var started := false
+
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Flap"):
+		started = true
+	
+	if not started:
+		return
+	
 	_get_accel(delta)
 	_apply_velocity()
 	
