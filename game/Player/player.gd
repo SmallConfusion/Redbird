@@ -58,6 +58,7 @@ func _physics_process(delta):
 
 
 func _die():
+	SoundManager.play("player", "death")
 	$AnimatedSprite2D.die()
 	is_dead = true
 	velocity = Vector2.ZERO

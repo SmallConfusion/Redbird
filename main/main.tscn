@@ -12,13 +12,26 @@
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="PackedScene" uid="uid://bfxb5ikio7qa6" path="res://game/levels/level_2.tscn" id="4_n3ouh"]
 [ext_resource type="PackedScene" uid="uid://es1vjbxmkae6" path="res://game/levels/level_3.tscn" id="5_7dyse"]
-[ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
 [ext_resource type="Shader" path="res://vfx/screen_transition.gdshader" id="6_t62yq"]
+[ext_resource type="AudioStream" uid="uid://d12syggdqbhdf" path="res://music/main.ogg" id="9_js5yk"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="15_ev3wf"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="16_wc8vy"]
 [ext_resource type="AudioStream" uid="uid://ry6xgk32slty" path="res://main/select.wav" id="17_cbl0k"]
 [ext_resource type="AudioStream" uid="uid://crocsp47wkmws" path="res://main/input.wav" id="18_getft"]
+
+[sub_resource type="Resource" id="Resource_x8cup"]
+script = ExtResource("4_38lop")
+name = "main"
+enabled = true
+volume = 0.0
+stream = ExtResource("9_js5yk")
+
+[sub_resource type="Resource" id="Resource_5hsw7"]
+script = ExtResource("3_twdqf")
+name = "main"
+bus = ""
+stems = Array[ExtResource("4_38lop")]([SubResource("Resource_x8cup")])
 
 [sub_resource type="Gradient" id="Gradient_vb0eu"]
 offsets = PackedFloat32Array(0.605)
@@ -40,19 +53,6 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 shader = ExtResource("4_8qnfu")
 shader_parameter/viewport = SubResource("ViewportTexture_npbsp")
-
-[sub_resource type="Resource" id="Resource_x8cup"]
-script = ExtResource("4_38lop")
-name = "main"
-enabled = true
-volume = 0.0
-stream = ExtResource("5_t3w2j")
-
-[sub_resource type="Resource" id="Resource_5hsw7"]
-script = ExtResource("3_twdqf")
-name = "main"
-bus = ""
-stems = Array[ExtResource("4_38lop")]([SubResource("Resource_x8cup")])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ofkc0"]
 viewport_path = NodePath("SubViewport")
@@ -93,6 +93,12 @@ grow_vertical = 2
 script = ExtResource("1_ux161")
 menu = ExtResource("2_gmm5b")
 levels = Array[PackedScene]([ExtResource("3_j42tc"), ExtResource("4_n3ouh"), ExtResource("5_7dyse")])
+
+[node name="MusicBank" type="Node" parent="."]
+script = ExtResource("2_fe5tn")
+label = "music"
+bus = "music"
+tracks = Array[ExtResource("3_twdqf")]([SubResource("Resource_5hsw7")])
 
 [node name="SubViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
@@ -152,12 +158,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MusicBank" type="Node" parent="."]
-script = ExtResource("2_fe5tn")
-label = "music"
-bus = "music"
-tracks = Array[ExtResource("3_twdqf")]([SubResource("Resource_5hsw7")])
 
 [node name="DebugWindow" type="Window" parent="."]
 title = "Debug"

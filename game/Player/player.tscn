@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://opsuu1r64pm7"]
+[gd_scene load_steps=31 format=3 uid="uid://opsuu1r64pm7"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ritqa"]
 [ext_resource type="PackedScene" uid="uid://d1wsdgfkgckpp" path="res://game/bullet/bullet.tscn" id="2_g5kih"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="8_l8oum"]
 [ext_resource type="AudioStream" uid="uid://ik7x5iqrwd1p" path="res://game/player/flap.wav" id="9_pg0xe"]
 [ext_resource type="AudioStream" uid="uid://c6aiobwhdykb8" path="res://game/player/error.wav" id="10_drgoy"]
+[ext_resource type="AudioStream" uid="uid://rkg7mnppgd1v" path="res://game/player/death.wav" id="13_61hkx"]
 [ext_resource type="Script" path="res://game/player/Sprite2D.gd" id="13_eict8"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_qdpfe"]
@@ -130,6 +131,14 @@ volume = 0.0
 pitch = 1.0
 streams = Array[AudioStream]([ExtResource("10_drgoy")])
 
+[sub_resource type="Resource" id="Resource_ljcl6"]
+script = ExtResource("8_l8oum")
+name = "death"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("13_61hkx")])
+
 [sub_resource type="Gradient" id="Gradient_56lmo"]
 offsets = PackedFloat32Array(0.434426)
 colors = PackedColorArray(0.745098, 0.843137, 0.913725, 1)
@@ -163,7 +172,7 @@ shape = SubResource("RectangleShape2D_7nwnr")
 script = ExtResource("7_ntu7r")
 label = "player"
 bus = "sfx"
-events = Array[ExtResource("8_l8oum")]([SubResource("Resource_hinc4"), SubResource("Resource_olgxn"), SubResource("Resource_uch5d")])
+events = Array[ExtResource("8_l8oum")]([SubResource("Resource_hinc4"), SubResource("Resource_olgxn"), SubResource("Resource_uch5d"), SubResource("Resource_ljcl6")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 11
