@@ -21,6 +21,10 @@ var enabled := false
 
 @onready var game_scene := $"../../../"
 
+var noise := FastNoiseLite.new()
+var noise_influence := 20.0
+
+
 func _physics_process(delta):
 	if enabled:
 		_handle_fire(delta)
@@ -32,7 +36,11 @@ func _physics_process(delta):
 func _move():
 	var y = remap(sin(Time.get_ticks_msec() / 1000), -1, 1, y_range_min, y_range_max)
 	var x = game_scene.get_x_offset() + 60
-	var target = Vector2(x, y)
+	
+	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 100.0) * noise_influence
+	var y_noise = noise.get_noise_1d(Time.get_ticks_msec() / 100.0 + 10000) * noise_influence
+	
+	var target = Vector2(x + x_noise, y + y_noise)
 	
 	accel = (target - global_position).normalized() * accel_speed
 	

@@ -47,11 +47,22 @@ focus = true
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 87.0
+offset_left = 73.0
 offset_top = 63.0
-offset_right = 102.0
+offset_right = 88.0
 offset_bottom = 78.0
 text = "2
 "
 script = ExtResource("2_og1g8")
 level = 1
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 63.0
+offset_right = 111.0
+offset_bottom = 78.0
+text = "3
+"
+script = ExtResource("2_og1g8")
+level = 2

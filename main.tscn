@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=22 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://vfx/trails.gdshader" id="4_8qnfu"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_38lop"]
 [ext_resource type="PackedScene" uid="uid://bfxb5ikio7qa6" path="res://game/levels/level_2.tscn" id="4_n3ouh"]
+[ext_resource type="PackedScene" uid="uid://es1vjbxmkae6" path="res://game/levels/level_3.tscn" id="5_7dyse"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
 
@@ -57,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ux161")
 menu = ExtResource("2_gmm5b")
-levels = Array[PackedScene]([ExtResource("3_j42tc"), ExtResource("4_n3ouh")])
+levels = Array[PackedScene]([ExtResource("3_j42tc"), ExtResource("4_n3ouh"), ExtResource("5_7dyse")])
 
 [node name="SubViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
