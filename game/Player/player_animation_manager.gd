@@ -4,8 +4,11 @@ var falling := false
 var dead := false
 
 func _on_animation_finished():
-	if not falling and not dead:
-		play("default")
+	if not dead:
+		if falling:
+			play("fall")
+		else:
+			play("default")
 
 func flap():
 	if not dead:
