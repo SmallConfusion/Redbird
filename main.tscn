@@ -44,7 +44,7 @@ viewport_path = NodePath("SubViewportContainer/SubViewport2")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eegpy"]
 shader = ExtResource("4_1p6e5")
 shader_parameter/blur_type = 2
-shader_parameter/blur_amount = 2
+shader_parameter/blur_amount = 1
 shader_parameter/blur_radius = 1.0
 shader_parameter/blur_direction = Vector2(1, 1)
 

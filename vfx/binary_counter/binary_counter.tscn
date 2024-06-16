@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ju6hsjwfrdb"]
+
+[ext_resource type="Script" path="res://vfx/binary_counter/binary_counter.gd" id="1_utjrl"]
+[ext_resource type="Texture2D" uid="uid://cxr2xkpl5ejbn" path="res://vfx/binary_counter/on.tres" id="2_firnr"]
+[ext_resource type="Texture2D" uid="uid://b2t8nb0pemlbl" path="res://vfx/binary_counter/off.tres" id="2_rufay"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_utjrl")
+off = ExtResource("2_rufay")
+on = ExtResource("2_firnr")

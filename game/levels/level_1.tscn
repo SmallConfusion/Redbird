@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=12 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_20xix"]
 [ext_resource type="Curve" uid="uid://bqrwx7hgqa4ni" path="res://game/hole/pull.tres" id="2_nectp"]
 [ext_resource type="Script" path="res://game/killbox.gd" id="3_11x1t"]
 [ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="3_d65yc"]
 [ext_resource type="PackedScene" uid="uid://5vkpxwgvm6c7" path="res://vfx/stars/stars.tscn" id="3_olfgw"]
+[ext_resource type="PackedScene" uid="uid://4dh527vyy6ak" path="res://game/levels/overlay.tscn" id="4_2hvlc"]
 [ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="5_7mo58"]
 [ext_resource type="Script" path="res://game/levels/wave.gd" id="6_d2j5s"]
 [ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="6_dlb8f"]
@@ -30,19 +31,7 @@ offset_right = 160.0
 offset_bottom = 144.0
 color = Color(0.184314, 0.12549, 0.254902, 1)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 10
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
-offset_right = 160.0
-offset_bottom = 32.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="CanvasLayer2"]
-offset_top = 136.0
-offset_right = 160.0
-offset_bottom = 144.0
-color = Color(0.745098, 0.843137, 0.913725, 1)
+[node name="Overlay" parent="." instance=ExtResource("4_2hvlc")]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 
