@@ -56,6 +56,5 @@ func _input(event):
 	if not event is InputEventMouse:
 		%SubViewport.push_input(event)
 
-
 func set_performance_mode(state):
 	$PostProcessing.visible = state

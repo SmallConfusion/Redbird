@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=28 format=3 uid="uid://cch8otb7qeu68"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ux161"]
+[ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
 [ext_resource type="PackedScene" uid="uid://20ok8gqsfhqm" path="res://menu/menu.tscn" id="2_gmm5b"]
 [ext_resource type="Theme" uid="uid://dcsgo6t80eu1w" path="res://debug/debug_theme.tres" id="2_n72wt"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://es1vjbxmkae6" path="res://game/levels/level_3.tscn" id="5_7dyse"]
 [ext_resource type="AudioStream" uid="uid://c4tx0gogr6xs5" path="res://music/palette main theme.ogg" id="5_t3w2j"]
 [ext_resource type="Script" path="res://debug/big_viewport.gd" id="11_pd3vo"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="15_ev3wf"]
+[ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="16_wc8vy"]
+[ext_resource type="AudioStream" uid="uid://ry6xgk32slty" path="res://main/select.wav" id="17_cbl0k"]
+[ext_resource type="AudioStream" uid="uid://crocsp47wkmws" path="res://main/input.wav" id="18_getft"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_npbsp"]
 viewport_path = NodePath("SubViewport")
@@ -48,6 +52,22 @@ shader_parameter/blur_type = 2
 shader_parameter/blur_amount = 1
 shader_parameter/blur_radius = 1.0
 shader_parameter/blur_direction = Vector2(1, 1)
+
+[sub_resource type="Resource" id="Resource_umv3t"]
+script = ExtResource("16_wc8vy")
+name = "select"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("17_cbl0k")])
+
+[sub_resource type="Resource" id="Resource_t1lk4"]
+script = ExtResource("16_wc8vy")
+name = "input"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("18_getft")])
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -212,3 +232,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SoundBank" type="Node" parent="."]
+script = ExtResource("15_ev3wf")
+label = "menu"
+events = Array[ExtResource("16_wc8vy")]([SubResource("Resource_umv3t"), SubResource("Resource_t1lk4")])

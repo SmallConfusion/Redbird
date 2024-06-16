@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://20ok8gqsfhqm"]
+[gd_scene load_steps=4 format=3 uid="uid://20ok8gqsfhqm"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_xhay3"]
 [ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_og1g8"]
+[ext_resource type="Script" path="res://menu/button.gd" id="3_6t18n"]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -74,5 +75,6 @@ offset_top = 103.0
 offset_right = 158.0
 offset_bottom = 127.0
 text = "Performance mode"
+script = ExtResource("3_6t18n")
 
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
