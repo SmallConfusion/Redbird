@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cieveea1xdexg"
-path="res://.godot/imported/logo.svg-1349ef34027eec019352ef8b9fdfd7d5.ctex"
+uid="uid://d1yngnb8sbmax"
+path="res://.godot/imported/nest.png-4ed0d4312fedb9b72d55ce95817d1f35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splash_screen/logo.svg"
-dest_files=["res://.godot/imported/logo.svg-1349ef34027eec019352ef8b9fdfd7d5.ctex"]
+source_file="res://vfx/menu_animation/nest.png"
+dest_files=["res://.godot/imported/nest.png-4ed0d4312fedb9b72d55ce95817d1f35.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.0
+compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
