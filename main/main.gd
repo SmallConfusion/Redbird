@@ -29,7 +29,7 @@ func _ready():
 	
 	$DebugWindow.visible = false
 
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(4).timeout
 	MusicManager.play("music", "main", 0)
 	MusicManager.updated.connect(on_music_manager_updated)
 

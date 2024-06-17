@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _ready():
-	if not OS.is_debug_build() or true:
+	if not OS.is_debug_build():
 		get_tree().paused = true
 		await get_tree().create_timer(3).timeout
 		get_tree().paused = false
