@@ -2,7 +2,7 @@ extends Node2D
 
 @export var bullet_scene : PackedScene
 
-var accel_speed = 0.1
+var accel_speed = 0.02
 var max_speed = 0.5
 
 @export var bullet_cooldown := 1.0
@@ -17,14 +17,14 @@ var enabled := false
 
 
 var noise := FastNoiseLite.new()
-var noise_influence := 20.0
+var noise_influence := 60.0
 
 var spread := 0.2
 
 func _ready():
 	randomize()
 	noise.seed = randi()
-	bullet_timer = randf_range(0, bullet_cooldown)
+	bullet_timer = randf_range(0, bullet_cooldown / 3)
 	
 
 
@@ -38,11 +38,11 @@ func _physics_process(delta):
 
 
 func _move():
-	var x = game_scene.get_x_offset() + 52
+	var x = game_scene.get_x_offset() + 32
 	var y = game_scene.get_player_position().y
 	
-	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 100.0) * noise_influence
-	var y_noise = noise.get_noise_1d(Time.get_ticks_msec() / 100.0 + 10000) * noise_influence
+	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 200.0) * noise_influence
+	var y_noise = noise.get_noise_1d(Time.get_ticks_msec() / 200.0 + 10000) * noise_influence
 	
 	var target = Vector2(x + x_noise, y + y_noise)
 	

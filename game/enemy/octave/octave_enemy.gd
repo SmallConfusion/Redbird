@@ -28,7 +28,7 @@ var noise_influence := 20.0
 func _ready():
 	randomize()
 	noise.seed = randi()
-	bullet_timer = randf_range(0, bullet_cooldown)
+	bullet_timer = randf_range(0, bullet_cooldown / 3)
 
 
 func _physics_process(delta):
