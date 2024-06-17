@@ -1,5 +1,7 @@
 extends Node2D
 
+signal dead
+
 @export var bullet_scene : PackedScene
 
 @export var target_y_offset = 0
@@ -77,6 +79,7 @@ func hit(_damage):
 	if enabled:
 		game_scene.score += 100
 		SoundManager.play("basic_enemy", "die")
+		emit_signal("dead")
 		queue_free()
 
 func destroy():

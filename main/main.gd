@@ -14,7 +14,7 @@ var performance_mode = false
 
 var unlocked_level := 0
 
-var unlock_all := false
+var unlock_all := true
 
 func _ready():
 	if OS.is_debug_build() and unlock_all:
@@ -22,7 +22,6 @@ func _ready():
 	
 	load_menu()
 	
-	MusicManager.updated.connect(on_music_manager_updated)
 	
 	if not OS.is_debug_build():
 		$DebugWindow.queue_free()
@@ -30,6 +29,9 @@ func _ready():
 	
 	$DebugWindow.visible = false
 
+	await get_tree().create_timer(3).timeout
+	MusicManager.play("music", "main", 0)
+	MusicManager.updated.connect(on_music_manager_updated)
 
 func _process(delta):
 	if Input.is_action_just_pressed("Debug"):

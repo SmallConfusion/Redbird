@@ -29,7 +29,7 @@ func init(scene):
 
 
 func _ready():
-	holes = get_tree().get_nodes_in_group("hole")
+	refresh_holes()
 	get_node(finish).connect("win", win)
 	get_node(player).connect("dead", restart)
 	
@@ -117,3 +117,7 @@ func get_remaining_enemies() -> int:
 
 func get_bullet_count() -> int:
 	return len(get_tree().get_nodes_in_group("bullet"))
+
+
+func refresh_holes():
+	holes = get_tree().get_nodes_in_group("hole")
