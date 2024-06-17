@@ -1,13 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6jc8r3jg0ju1"]
+[gd_scene load_steps=5 format=3 uid="uid://c6jc8r3jg0ju1"]
 
 [ext_resource type="Script" path="res://splash_screen/splash_screen.gd" id="1_iurx5"]
 [ext_resource type="Texture2D" uid="uid://cieveea1xdexg" path="res://splash_screen/logo.svg" id="1_p0rr4"]
-[ext_resource type="Shader" path="res://splash_screen/splash_screen.gdshader" id="2_kl5ks"]
 [ext_resource type="Texture2D" uid="uid://cixxgjiqsp1yv" path="res://splash_screen/hotpanda-1x.png" id="2_s8730"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnhvq"]
-shader = ExtResource("2_kl5ks")
-shader_parameter/t = 0.0
 
 [sub_resource type="SystemFont" id="SystemFont_b44lf"]
 subpixel_positioning = 0
@@ -17,7 +12,6 @@ layer = 128
 script = ExtResource("1_iurx5")
 
 [node name="SplashScreen" type="Control" parent="."]
-material = SubResource("ShaderMaterial_dnhvq")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
