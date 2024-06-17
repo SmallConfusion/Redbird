@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1pe7lo3pwj0k"]
+
+[ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_dk3ub"]
+[ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_3y11a"]
+[ext_resource type="PackedScene" uid="uid://5vkpxwgvm6c7" path="res://vfx/stars/stars.tscn" id="3_5posl"]
+[ext_resource type="PackedScene" uid="uid://4dh527vyy6ak" path="res://game/levels/overlay.tscn" id="4_bnc4a"]
+[ext_resource type="Script" path="res://game/killbox.gd" id="5_n0111"]
+[ext_resource type="PackedScene" uid="uid://opsuu1r64pm7" path="res://game/player/player.tscn" id="6_2qrw4"]
+[ext_resource type="Script" path="res://game/levels/wave.gd" id="7_2snvh"]
+[ext_resource type="PackedScene" uid="uid://d3hb2g0vw7p7h" path="res://game/enemy/basic/basic_enemy.tscn" id="8_62wxc"]
+[ext_resource type="PackedScene" uid="uid://b2bvdeyhcyp54" path="res://game/egg/egg.tscn" id="9_26mry"]
+[ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="10_spcms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
+size = Vector2(20, 273)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_dk3ub")
+hole_pull_curve = ExtResource("2_3y11a")
+finish = NodePath("Waves/WaveFinal/Egg")
+player = NodePath("Player")
+level_index = 4
+
+[node name="Stars" parent="." instance=ExtResource("3_5posl")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.184314, 0.12549, 0.254902, 1)
+
+[node name="Overlay" parent="." instance=ExtResource("4_bnc4a")]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Camera2D"]
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+border_color = Color(0.366698, 0.477396, 1, 1)
+
+[node name="Killbox" type="Area2D" parent="Camera2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("5_n0111")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(-137, -3)
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(4, -145)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(142, -6)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera2D/Killbox"]
+position = Vector2(1, 135)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_q5sfn")
+
+[node name="Player" parent="." instance=ExtResource("6_2qrw4")]
+position = Vector2(-71, 0)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 920.0
+offset_bottom = 64.0
+
+[node name="Waves" type="Node2D" parent="."]
+
+[node name="Wave1" type="Node2D" parent="Waves"]
+position = Vector2(181, 0)
+script = ExtResource("7_2snvh")
+
+[node name="Enemy" parent="Waves/Wave1" instance=ExtResource("8_62wxc")]
+position = Vector2(-9, -17)
+
+[node name="WaveFinal" type="Node2D" parent="Waves"]
+position = Vector2(459, 0)
+script = ExtResource("7_2snvh")
+
+[node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("9_26mry")]
+position = Vector2(-32, 0)
+
+[node name="Hole" parent="." instance=ExtResource("10_spcms")]
+position = Vector2(322, 49)
+
+[connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]

@@ -14,8 +14,12 @@ var performance_mode = false
 
 var unlocked_level := 0
 
+var unlock_all := false
 
 func _ready():
+	if OS.is_debug_build() and unlock_all:
+		unlocked_level = 100
+	
 	load_menu()
 	
 	MusicManager.updated.connect(on_music_manager_updated)

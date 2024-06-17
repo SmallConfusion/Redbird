@@ -34,7 +34,6 @@ func _physics_process(delta):
 		_move()
 	elif global_position.x <= game_scene.get_bounds(0, 0, 0, -8)[3]:
 		enabled = true
-		
 
 
 func _move():

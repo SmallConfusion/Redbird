@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://20ok8gqsfhqm"]
+[gd_scene load_steps=5 format=3 uid="uid://20ok8gqsfhqm"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_xhay3"]
 [ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_og1g8"]
 [ext_resource type="Script" path="res://menu/button.gd" id="3_6t18n"]
+[ext_resource type="Texture2D" uid="uid://dk2juea27hs0w" path="res://skull_icon.png" id="4_3g8b0"]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -70,17 +71,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.5
-offset_top = -7.5
-offset_right = 26.5
-offset_bottom = 7.5
+offset_left = -53.0
+offset_top = -7.0
+offset_right = 54.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "1"
 script = ExtResource("2_og1g8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2
@@ -89,6 +94,9 @@ text = "2
 script = ExtResource("2_og1g8")
 level = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
 [node name="Button3" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "3
@@ -96,9 +104,21 @@ text = "3
 script = ExtResource("2_og1g8")
 level = 2
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
 [node name="Button4" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "4"
 script = ExtResource("2_og1g8")
 level = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_3g8b0")
+script = ExtResource("2_og1g8")
+level = 4
 last_button = true
