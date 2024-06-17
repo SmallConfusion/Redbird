@@ -37,8 +37,8 @@ window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/size/viewport_width.editor=1920
-window/size/viewport_height.editor=1080
+window/size/window_width_override.editor=1920
+window/size/window_height_override.editor=1080
 
 [editor]
 

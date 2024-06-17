@@ -22,7 +22,7 @@ script = ExtResource("1_6syob")
 hole_pull_curve = ExtResource("2_q2pey")
 finish = NodePath("Waves/WaveFinal/Egg")
 player = NodePath("Player")
-level_index = 2
+level_index = 3
 
 [node name="Stars" parent="." instance=ExtResource("3_f841k")]
 

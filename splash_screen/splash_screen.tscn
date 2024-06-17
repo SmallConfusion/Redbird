@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cixxgjiqsp1yv" path="res://splash_screen/hotpanda-1x.png" id="2_s8730"]
 
 [sub_resource type="SystemFont" id="SystemFont_b44lf"]
+subpixel_positioning = 0
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 128
