@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://btunljt5bo3aa"]
+[gd_scene load_steps=16 format=3 uid="uid://btunljt5bo3aa"]
 
 [ext_resource type="Script" path="res://game/enemy/fish/fish_enemy.gd" id="1_u78ib"]
 [ext_resource type="PackedScene" uid="uid://dwi87tf3frhy7" path="res://game/enemy/fish/big_bullet_fish.tscn" id="2_ocnl4"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_h0vxa"]
+[ext_resource type="PackedScene" uid="uid://dkanccmg2r1fd" path="res://game/enemy/death_particles.tscn" id="3_misdp"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_iaxrr"]
 [ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="5_pq6e1"]
 [ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="6_hl8qb"]
@@ -47,6 +48,7 @@ size = Vector2(12, 11)
 script = ExtResource("1_u78ib")
 bullet_scene = ExtResource("2_ocnl4")
 bullet_cooldown = 0.3
+death_particles = ExtResource("3_misdp")
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_h0vxa")

@@ -23,6 +23,9 @@ var enabled := false
 var noise := FastNoiseLite.new()
 var noise_influence := 20.0
 
+@export var death_particles : PackedScene
+
+
 func _ready():
 	randomize()
 	noise.seed = randi()
@@ -77,10 +80,17 @@ func _handle_fire(delta):
 
 func hit(_damage):
 	if enabled:
+		emit_particles()
 		game_scene.score += 100
 		SoundManager.play("basic_enemy", "die")
 		emit_signal("dead")
 		queue_free()
+
+func emit_particles():
+	var particles = death_particles.instantiate()
+	particles.position = global_position
+	game_scene.add_child(particles)
+	
 
 func destroy():
 	if enabled:

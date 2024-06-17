@@ -21,6 +21,8 @@ var noise_influence := 60.0
 
 var spread := 0.2
 
+@export var death_particles : PackedScene
+
 func _ready():
 	randomize()
 	noise.seed = randi()
@@ -77,10 +79,17 @@ func _handle_fire(delta):
 
 func hit(_damage):
 	if enabled:
+		emit_particles()
 		game_scene.score += 400
 		SoundManager.play("basic_enemy", "die")
 		queue_free()
 
+
+func emit_particles():
+	var particles = death_particles.instantiate()
+	particles.position = global_position
+	game_scene.add_child(particles)
+	
 func destroy():
 	if enabled:
 		queue_free()

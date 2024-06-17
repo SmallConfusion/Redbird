@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=40 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://crocsp47wkmws" path="res://main/input.wav" id="18_getft"]
 [ext_resource type="PackedScene" uid="uid://c6jc8r3jg0ju1" path="res://splash_screen/splash_screen.tscn" id="23_s8d4m"]
 [ext_resource type="PackedScene" uid="uid://dgl7lsl0dm8rm" path="res://game/bossfight/explosion_particles.tscn" id="25_knffh"]
+[ext_resource type="PackedScene" uid="uid://dkanccmg2r1fd" path="res://game/enemy/death_particles.tscn" id="26_dwxso"]
+[ext_resource type="PackedScene" uid="uid://bwrf4nnrio2g2" path="res://game/enemy/death_particles_small.tscn" id="27_p47nd"]
 
 [sub_resource type="Resource" id="Resource_x8cup"]
 script = ExtResource("4_38lop")
@@ -289,4 +291,12 @@ events = Array[ExtResource("16_wc8vy")]([SubResource("Resource_umv3t"), SubResou
 process_mode = 3
 
 [node name="ExplosionParticles" parent="." instance=ExtResource("25_knffh")]
+process_mode = 3
 position = Vector2(208, 376)
+
+[node name="DeathParticles" parent="." instance=ExtResource("26_dwxso")]
+process_mode = 3
+position = Vector2(277, 425)
+
+[node name="DeathParticles2" parent="." instance=ExtResource("27_p47nd")]
+process_mode = 3

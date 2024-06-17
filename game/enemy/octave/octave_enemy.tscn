@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyi43lciv03ed"]
+[gd_scene load_steps=23 format=3 uid="uid://cyi43lciv03ed"]
 
 [ext_resource type="Script" path="res://game/enemy/octave/octave_enemy.gd" id="1_wcql6"]
 [ext_resource type="PackedScene" uid="uid://rggm32kqceuf" path="res://game/bullet/big_bullet.tscn" id="2_w2d2t"]
+[ext_resource type="PackedScene" uid="uid://dkanccmg2r1fd" path="res://game/enemy/death_particles.tscn" id="3_6w1lf"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_bank.gd" id="3_78ltf"]
 [ext_resource type="Script" path="res://addons/resonate/sound_manager/sound_event_resource.gd" id="4_bb3ir"]
 [ext_resource type="AudioStream" uid="uid://c02h0shyt7nvo" path="res://game/enemy/octave/octave.wav" id="5_qbqbv"]
@@ -106,6 +107,7 @@ script = ExtResource("1_wcql6")
 bullet_scene = ExtResource("2_w2d2t")
 y_range_min = 56
 y_range_max = -32
+death_particles = ExtResource("3_6w1lf")
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_78ltf")

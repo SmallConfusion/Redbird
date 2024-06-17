@@ -149,7 +149,7 @@ bullet_scene = ExtResource("2_g5kih")
 z_index = 10
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_d1s45")
-animation = &"sit"
+animation = &"flap"
 autoplay = "sit"
 script = ExtResource("3_8w1wh")
 

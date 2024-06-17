@@ -3,11 +3,9 @@ extends CanvasLayer
 
 func _ready():
 	if not OS.is_debug_build():
-		get_tree().paused = true
-		await get_tree().create_timer(3).timeout
-		get_tree().paused = false
 		await get_tree().create_timer(0.05).timeout
 		get_tree().paused = true
+		await get_tree().create_timer(3).timeout
 		
 		var tween = get_tree().create_tween()
 		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)

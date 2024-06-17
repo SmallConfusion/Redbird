@@ -44,7 +44,7 @@ color = Color(1, 1, 1, 0.521569)
 color_ramp = SubResource("GradientTexture1D_7krxh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1fvj"]
-size = Vector2(0.1, 0.1)
+size = Vector2(1, 1)
 
 [node name="Hole" type="Node2D" groups=["hole"]]
 texture_filter = 1
