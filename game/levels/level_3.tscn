@@ -110,9 +110,6 @@ script = ExtResource("7_fo836")
 [node name="Enemy2" parent="Waves/Wave4" instance=ExtResource("11_xl8e1")]
 position = Vector2(-7, 10)
 
-[node name="Enemy2" parent="Waves/Wave4/Enemy2" instance=ExtResource("11_xl8e1")]
-position = Vector2(-7, 10)
-
 [node name="WaveFinal" type="Node2D" parent="Waves"]
 position = Vector2(505, 0)
 script = ExtResource("7_fo836")

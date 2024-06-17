@@ -12,10 +12,12 @@ var shader_t = INF
 
 var performance_mode = false
 
-var unlocked_level := 10
+var unlocked_level := 0
+
 
 func _ready():
 	load_menu()
+	
 	MusicManager.updated.connect(on_music_manager_updated)
 	
 	if not OS.is_debug_build():

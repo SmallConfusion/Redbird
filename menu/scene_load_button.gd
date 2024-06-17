@@ -7,6 +7,10 @@ class_name LoadButton
 var scene_manager
 
 func init(scene):
+	if not scene:
+		print("Warning: Scene is Nil, should happen on first load.")
+		return
+	
 	scene_manager = scene
 
 	if level > scene_manager.unlocked_level:

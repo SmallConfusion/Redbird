@@ -46,7 +46,7 @@ size = Vector2(12, 11)
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_u78ib")
 bullet_scene = ExtResource("2_ocnl4")
-bullet_cooldown = 0.4
+bullet_cooldown = 0.3
 
 [node name="SoundBank" type="Node" parent="."]
 script = ExtResource("3_h0vxa")
