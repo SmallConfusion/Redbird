@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b1pe7lo3pwj0k"]
+[gd_scene load_steps=33 format=3 uid="uid://b1pe7lo3pwj0k"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_dk3ub"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_3y11a"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://game/bossfight/pupil.gd" id="18_e871n"]
 [ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/enemy/enemy_bullet.tscn" id="18_fqug5"]
 [ext_resource type="Texture2D" uid="uid://dkp11hon1w412" path="res://game/bossfight/wall.png" id="21_yt2kb"]
+[ext_resource type="PackedScene" uid="uid://dgl7lsl0dm8rm" path="res://game/bossfight/explosion_particles.tscn" id="25_2oipp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
 size = Vector2(20, 273)
@@ -179,8 +180,8 @@ texture = ExtResource("17_xq58n")
 script = ExtResource("18_e871n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Waves/w2/Boss"]
-position = Vector2(-13.5, -45)
-scale = Vector2(27, 8)
+position = Vector2(-13.5, -41.5)
+scale = Vector2(27, 1)
 texture = SubResource("GradientTexture1D_pjhv8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Waves/w2/Boss"]
@@ -220,6 +221,18 @@ z_index = 20
 position = Vector2(-2, 0)
 texture = ExtResource("17_xionr")
 offset = Vector2(0.5, 0.5)
+
+[node name="ExplosionParticles" parent="Waves/w2/Boss" instance=ExtResource("25_2oipp")]
+position = Vector2(-15, -29)
+
+[node name="ExplosionParticles2" parent="Waves/w2/Boss" instance=ExtResource("25_2oipp")]
+position = Vector2(-14, 48)
+
+[node name="ExplosionParticles3" parent="Waves/w2/Boss" instance=ExtResource("25_2oipp")]
+position = Vector2(-11, 28)
+
+[node name="ExplosionParticles4" parent="Waves/w2/Boss" instance=ExtResource("25_2oipp")]
+position = Vector2(-8, -9)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
 position = Vector2(205, 0)

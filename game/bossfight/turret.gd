@@ -11,6 +11,9 @@ var enabled := false
 var disabled := false
 
 func _physics_process(delta):
+	if $"..".dead:
+		return
+	
 	if global_position.x <= game_manager.get_bounds(0, 0, 0, 0)[3]:
 		enabled = true
 	else:
