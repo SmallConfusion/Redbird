@@ -132,7 +132,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0392157, 0.494118, 0.545098, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -169,6 +169,7 @@ grow_vertical = 2
 title = "Debug"
 initial_position = 2
 size = Vector2i(1024, 1024)
+visible = false
 unresizable = true
 theme = ExtResource("2_n72wt")
 
@@ -251,7 +252,7 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="DebugWindow/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1024, 320)
-render_target_update_mode = 4
+render_target_update_mode = 0
 script = ExtResource("11_pd3vo")
 
 [node name="Camera2D" type="Camera2D" parent="DebugWindow/SubViewportContainer/SubViewport"]
