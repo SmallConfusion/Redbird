@@ -11,8 +11,10 @@ extends Node2D
 var spawning := false
 var holes := false
 
-var hole_cooldown = 4.0
+var hole_cooldown = 8.0
 var hole_timer = 0.0
+
+var last_enemy
 
 func _physics_process(delta):
 	hole_timer -= delta
@@ -25,6 +27,7 @@ func _physics_process(delta):
 func _eye_dead():
 	if eye1.is_dead and eye2.is_dead:
 		if holes:
+			last_enemy.hit(1)
 			queue_free()
 		
 		elif spawning:
@@ -34,7 +37,7 @@ func _eye_dead():
 			spawning = true
 			_spawn_enemy()
 
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(4).timeout
 		eye1.live()
 		eye2.live()
 
@@ -51,6 +54,8 @@ func _spawn_enemy():
 	enemy.connect("dead", _on_enemy_dead)
 	
 	$"..".add_child(enemy)
+	
+	last_enemy = enemy
 
 
 func _spawn_hole():

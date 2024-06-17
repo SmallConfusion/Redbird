@@ -202,6 +202,7 @@ position = Vector2(-16.5, 53.5)
 script = ExtResource("17_4eets")
 bullet_scene = ExtResource("18_fqug5")
 bullet_timer = 0.75
+bullet_cooldown = null
 
 [node name="Turret" type="Sprite2D" parent="Waves/w2/Boss/Turret2"]
 z_index = 20
@@ -214,6 +215,7 @@ position = Vector2(-16.5, -31.5)
 script = ExtResource("17_4eets")
 bullet_scene = ExtResource("18_fqug5")
 bullet_timer = 1.5
+bullet_cooldown = null
 
 [node name="Turret" type="Sprite2D" parent="Waves/w2/Boss/Turret"]
 z_index = 20
