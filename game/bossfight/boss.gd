@@ -25,6 +25,8 @@ func _physics_process(delta):
 
 
 func _eye_dead():
+	game_manager.score += 1000
+	
 	if eye1.is_dead and eye2.is_dead:
 		if holes:
 			last_enemy.hit(1)

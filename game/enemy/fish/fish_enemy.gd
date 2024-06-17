@@ -37,10 +37,10 @@ func _physics_process(delta):
 
 
 func _move():
-	var x = game_scene.get_x_offset() + 32
+	var x = game_scene.get_x_offset() + 52
 	var y = game_scene.get_player_position().y
 	
-	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 200.0) * noise_influence
+	var x_noise = noise.get_noise_1d(Time.get_ticks_msec() / 200.0) * noise_influence * 0.5
 	var y_noise = noise.get_noise_1d(Time.get_ticks_msec() / 200.0 + 10000) * noise_influence
 	
 	var target = Vector2(x + x_noise, y + y_noise)

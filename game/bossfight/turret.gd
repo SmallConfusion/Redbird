@@ -34,7 +34,7 @@ func _physics_process(delta):
 			var bullet = bullet_scene.instantiate()
 			bullet.forward = diff.normalized()
 			bullet.position = global_position + Vector2.from_angle(angle) * -5
-			bullet.speed = 1.5
+			bullet.speed = 1.3
 			game_manager.add_child(bullet)
 			SoundManager.play("boss", "fire")
 		

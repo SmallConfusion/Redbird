@@ -18,7 +18,6 @@ func init(scene):
 	elif level == scene_manager.unlocked_level or \
 		(level < scene_manager.unlocked_level and last_button):
 		
-		print("%d level button grabbed focus" % level)
 		grab_focus()
 
 func _ready():
