@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cch8otb7qeu68"]
+[gd_scene load_steps=41 format=3 uid="uid://cch8otb7qeu68"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_ux161"]
 [ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_fe5tn"]
@@ -90,6 +90,9 @@ bus = ""
 volume = 0.0
 pitch = 1.0
 streams = Array[AudioStream]([ExtResource("18_getft")])
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0kv4x"]
+viewport_path = NodePath("SubViewportContainer/SubViewport2")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -290,6 +293,22 @@ events = Array[ExtResource("16_wc8vy")]([SubResource("Resource_umv3t"), SubResou
 [node name="CanvasLayer" parent="." instance=ExtResource("23_s8d4m")]
 process_mode = 3
 
+[node name="TextureRect3" parent="CanvasLayer" index="0"]
+modulate = Color(1, 1, 1, 0)
+z_index = 4091
+texture = SubResource("ViewportTexture_0kv4x")
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect3" index="0"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="ExplosionParticles" parent="." instance=ExtResource("25_knffh")]
 process_mode = 3
 position = Vector2(208, 376)
@@ -300,3 +319,5 @@ position = Vector2(277, 425)
 
 [node name="DeathParticles2" parent="." instance=ExtResource("27_p47nd")]
 process_mode = 3
+
+[editable path="CanvasLayer"]
