@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b1pe7lo3pwj0k"]
+[gd_scene load_steps=34 format=3 uid="uid://b1pe7lo3pwj0k"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_dk3ub"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_3y11a"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/enemy/enemy_bullet.tscn" id="18_fqug5"]
 [ext_resource type="Texture2D" uid="uid://dkp11hon1w412" path="res://game/bossfight/wall.png" id="21_yt2kb"]
 [ext_resource type="PackedScene" uid="uid://dgl7lsl0dm8rm" path="res://game/bossfight/explosion_particles.tscn" id="25_2oipp"]
+[ext_resource type="Script" path="res://game/hurtbox.gd" id="26_mwrjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
 size = Vector2(20, 273)
@@ -234,6 +235,13 @@ position = Vector2(-11, 28)
 [node name="ExplosionParticles4" parent="Waves/w2/Boss" instance=ExtResource("25_2oipp")]
 position = Vector2(-8, -9)
 
+[node name="Hurtbox" type="Area2D" parent="Waves/w2/Boss"]
+script = ExtResource("26_mwrjq")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Waves/w2/Boss/Hurtbox"]
+position = Vector2(-13, 11)
+polygon = PackedVector2Array(16, 52, -12, 52, -12, 47, -11, 47, -11, 44, -10, 44, -10, 42, -9, 42, -9, 41, -8, 41, -8, 40, -7, 40, -7, 38, -6, 38, -6, 36, -5, 36, -5, 34, -4, 34, -3, 24, -3, 10, -4, 10, -4, 6, -5, 6, -5, 1, -6, 1, -6, -1, -5, -1, -5, -6, -4, -6, -4, -10, -3, -10, -3, -24, -4, -34, -5, -34, -5, -36, -6, -36, -6, -38, -7, -38, -7, -40, -8, -40, -8, -41, -9, -41, -9, -42, -10, -42, -10, -44, -11, -44, -11, -47, -12, -47, -12, -52, 16, -52)
+
 [node name="WaveFinal" type="Node2D" parent="Waves"]
 position = Vector2(205, 0)
 script = ExtResource("7_2snvh")
@@ -248,3 +256,4 @@ position = Vector2(-32, 0)
 [connection signal="dead" from="Waves/w2/Boss/Eye2" to="Waves/w2/Boss" method="_eye_dead"]
 [connection signal="dead" from="Waves/w2/Boss/Eye2" to="Waves/w2/Boss/Turret2" method="disable"]
 [connection signal="life" from="Waves/w2/Boss/Eye2" to="Waves/w2/Boss/Turret2" method="enable"]
+[connection signal="area_entered" from="Waves/w2/Boss/Hurtbox" to="Waves/w2/Boss/Hurtbox" method="_on_area_entered"]
