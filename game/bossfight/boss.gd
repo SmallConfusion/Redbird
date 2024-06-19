@@ -19,6 +19,11 @@ var last_enemy
 var dead := false
 
 
+#func _ready():
+	#await get_tree().create_timer(5).timeout
+	#kill()
+
+
 func _physics_process(delta):
 	if dead:
 		position.x = (randf() - 0.5) * 4
@@ -88,7 +93,11 @@ func _spawn_hole():
 func kill():
 	dead = true
 	
-	last_enemy.hit(1)
+	SoundManager.play("boss", "explosion")
+	
+	if last_enemy:
+		last_enemy.hit(1)
+	
 	do_particles()
 	
 	await get_tree().create_timer(1).timeout
@@ -101,6 +110,7 @@ func kill():
 	
 
 func do_particles():
-	for particles in [$ExplosionParticles, $ExplosionParticles2, $ExplosionParticles3, $ExplosionParticles4]:
-		particles.start()
-		await get_tree().create_timer(0.3).timeout
+	for i in 3:
+		for particles in [$ExplosionParticles, $ExplosionParticles2, $ExplosionParticles3, $ExplosionParticles4]:
+			particles.start()
+			await get_tree().create_timer(0.35).timeout

@@ -7,5 +7,7 @@ func _ready():
 		start()
 
 func start():
+	restart()
+	$GPUParticles2D.restart()
 	emitting = true
 	$GPUParticles2D.emitting = true

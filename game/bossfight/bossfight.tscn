@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b1pe7lo3pwj0k"]
+[gd_scene load_steps=36 format=3 uid="uid://b1pe7lo3pwj0k"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_dk3ub"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_3y11a"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://8a00lqyeh2uc" path="res://game/enemy/enemy_shoot.wav" id="13_bq4bg"]
 [ext_resource type="AudioStream" uid="uid://dk2nph2b5xsm8" path="res://game/enemy/kill.wav" id="14_o14mk"]
 [ext_resource type="Script" path="res://game/bossfight/eye.gd" id="14_y3ccy"]
+[ext_resource type="AudioStream" uid="uid://bwptm40nfd6lc" path="res://game/bossfight/explosion2.wav" id="15_ipyq7"]
 [ext_resource type="Script" path="res://game/stopbox.gd" id="16_806fr"]
 [ext_resource type="Script" path="res://game/hitbox.gd" id="16_xfbp3"]
 [ext_resource type="Script" path="res://game/bossfight/turret.gd" id="17_4eets"]
@@ -46,6 +47,14 @@ bus = ""
 volume = 0.0
 pitch = 1.0
 streams = Array[AudioStream]([ExtResource("14_o14mk")])
+
+[sub_resource type="Resource" id="Resource_mmehh"]
+script = ExtResource("12_yyw1w")
+name = "explosion"
+bus = ""
+volume = 0.0
+pitch = 1.0
+streams = Array[AudioStream]([ExtResource("15_ipyq7")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_entqs"]
 size = Vector2(18, 12)
@@ -135,7 +144,7 @@ hole_scene = ExtResource("10_0glcu")
 script = ExtResource("11_h3tpo")
 label = "boss"
 bus = "sfx"
-events = Array[ExtResource("12_yyw1w")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k")])
+events = Array[ExtResource("12_yyw1w")]([SubResource("Resource_4y7un"), SubResource("Resource_1j08k"), SubResource("Resource_mmehh")])
 
 [node name="Wall" type="Sprite2D" parent="Waves/w2/Boss"]
 position = Vector2(-16, 11)
