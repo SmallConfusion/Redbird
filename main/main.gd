@@ -16,6 +16,8 @@ var unlocked_level := 0
 
 var unlock_all := true
 
+var first_menu := true
+
 func _ready():
 	if OS.is_debug_build() and unlock_all:
 		unlocked_level = 100
