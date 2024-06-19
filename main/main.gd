@@ -90,3 +90,13 @@ func set_performance_mode(state):
 
 func beat_level(level):
 	unlocked_level = max(level+1, unlocked_level)
+
+
+func shake(type):
+	match type:
+		0:
+			$SubViewportContainer.shake_soft()
+		1:
+			$SubViewportContainer.shake_hard()
+		2:
+			$SubViewportContainer.shake_boss()

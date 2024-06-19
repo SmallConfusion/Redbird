@@ -90,6 +90,7 @@ func hit(_damage):
 	if enabled:
 		emit_particles()
 		game_scene.score += 200
+		game_scene.shake(0)
 		SoundManager.play("octave_enemy", "die")
 		queue_free()
 

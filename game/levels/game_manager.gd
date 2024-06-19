@@ -121,3 +121,7 @@ func get_bullet_count() -> int:
 
 func refresh_holes():
 	holes = get_tree().get_nodes_in_group("hole")
+
+
+func shake(type):
+	scene_manager.shake(type)

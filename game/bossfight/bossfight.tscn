@@ -208,6 +208,11 @@ position = Vector2(-13.5, 67)
 scale = Vector2(27, 8)
 texture = SubResource("GradientTexture1D_pjhv8")
 
+[node name="Sprite2D3" type="Sprite2D" parent="Waves/w2/Boss"]
+position = Vector2(13, 19.25)
+scale = Vector2(27, 122.5)
+texture = SubResource("GradientTexture1D_pjhv8")
+
 [node name="Area2D" type="Area2D" parent="Waves/w2/Boss"]
 collision_layer = 2
 collision_mask = 2

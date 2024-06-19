@@ -22,6 +22,7 @@ func _physics_process(delta):
 
 func hit(damage):
 	if not is_dead:
+		$"../../../..".shake(0)
 		$DeathParticles.emitting = true
 		SoundManager.play("boss", "die")
 		is_dead = true
@@ -39,6 +40,8 @@ func live():
 	emit_signal("life")
 	visible = true
 	is_dead = false
+	$DeathParticles.restart()
+	$DeathParticles.emitting = false
 	
 	for i in 4:
 		$Pupil.scale = Vector2((i+1.)/4., (i+1.)/4.)

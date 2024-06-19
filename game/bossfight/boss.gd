@@ -93,6 +93,7 @@ func _spawn_hole():
 func kill():
 	dead = true
 	
+	game_manager.shake(2)
 	SoundManager.play("boss", "explosion")
 	
 	if last_enemy:
@@ -105,7 +106,7 @@ func kill():
 	position.x = 0
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(0, 144), 5.5).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position:y", 144, 5.5).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(queue_free)
 	
 

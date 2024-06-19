@@ -81,6 +81,7 @@ func _handle_fire(delta):
 func hit(_damage):
 	if enabled:
 		emit_particles()
+		game_scene.shake(0)
 		game_scene.score += 100
 		SoundManager.play("basic_enemy", "die")
 		emit_signal("dead")

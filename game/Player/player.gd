@@ -58,6 +58,7 @@ func _physics_process(delta):
 
 func _die():
 	if not is_dead:
+		game_scene.shake(1)
 		SoundManager.play("player", "death")
 		$AnimatedSprite2D.die()
 		is_dead = true
