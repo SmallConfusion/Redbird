@@ -266,11 +266,22 @@ position = Vector2(-13, 11)
 polygon = PackedVector2Array(16, 52, -12, 52, -12, 47, -11, 47, -11, 44, -10, 44, -10, 42, -9, 42, -9, 41, -8, 41, -8, 40, -7, 40, -7, 38, -6, 38, -6, 36, -5, 36, -5, 34, -4, 34, -3, 24, -3, 10, -4, 10, -4, 6, -5, 6, -5, 1, -6, 1, -6, -1, -5, -1, -5, -6, -4, -6, -4, -10, -3, -10, -3, -24, -4, -34, -5, -34, -5, -36, -6, -36, -6, -38, -7, -38, -7, -40, -8, -40, -8, -41, -9, -41, -9, -42, -10, -42, -10, -44, -11, -44, -11, -47, -12, -47, -12, -52, 16, -52)
 
 [node name="WaveFinal" type="Node2D" parent="Waves"]
-position = Vector2(205, 0)
+position = Vector2(264, 0)
 script = ExtResource("7_2snvh")
 
 [node name="Egg" parent="Waves/WaveFinal" instance=ExtResource("9_26mry")]
 position = Vector2(-32, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 133.0
+offset_top = -14.0
+offset_right = 201.0
+offset_bottom = 13.0
+text = "Thank you
+for playing
+<3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]
 [connection signal="dead" from="Waves/w2/Boss/Eye" to="Waves/w2/Boss" method="_eye_dead"]
