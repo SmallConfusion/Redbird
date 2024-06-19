@@ -22,6 +22,7 @@ func _physics_process(delta):
 
 func hit(damage):
 	if not is_dead:
+		$DeathParticles.emitting = true
 		SoundManager.play("boss", "die")
 		is_dead = true
 		emit_signal("dead")

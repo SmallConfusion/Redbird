@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b1pe7lo3pwj0k"]
+[gd_scene load_steps=37 format=3 uid="uid://b1pe7lo3pwj0k"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_dk3ub"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_3y11a"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://brf1xmx6wvx6h" path="res://game/bossfight/pupil.png" id="17_xq58n"]
 [ext_resource type="Script" path="res://game/bossfight/pupil.gd" id="18_e871n"]
 [ext_resource type="PackedScene" uid="uid://c3r5gvgxdlq0f" path="res://game/enemy/enemy_bullet.tscn" id="18_fqug5"]
+[ext_resource type="PackedScene" uid="uid://dkanccmg2r1fd" path="res://game/enemy/death_particles.tscn" id="19_677hd"]
 [ext_resource type="Texture2D" uid="uid://dkp11hon1w412" path="res://game/bossfight/wall.png" id="21_yt2kb"]
 [ext_resource type="PackedScene" uid="uid://dgl7lsl0dm8rm" path="res://game/bossfight/explosion_particles.tscn" id="25_2oipp"]
 [ext_resource type="Script" path="res://game/hurtbox.gd" id="26_mwrjq"]
@@ -154,6 +155,10 @@ texture = ExtResource("21_yt2kb")
 script = ExtResource("14_y3ccy")
 blink_texture = ExtResource("17_50n47")
 
+[node name="DeathParticles" parent="Waves/w2/Boss/Eye" instance=ExtResource("19_677hd")]
+position = Vector2(-14, -17)
+script = null
+
 [node name="Area2D2" type="Area2D" parent="Waves/w2/Boss/Eye"]
 position = Vector2(-14, -17)
 collision_layer = 2
@@ -188,6 +193,10 @@ shape = SubResource("RectangleShape2D_entqs")
 position = Vector2(-14, -17)
 texture = ExtResource("17_xq58n")
 script = ExtResource("18_e871n")
+
+[node name="DeathParticles" parent="Waves/w2/Boss/Eye2" instance=ExtResource("19_677hd")]
+position = Vector2(-14, -17)
+script = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Waves/w2/Boss"]
 position = Vector2(-13.5, -41.5)
