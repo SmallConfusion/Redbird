@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cieveea1xdexg"
-path="res://.godot/imported/logo.svg-1349ef34027eec019352ef8b9fdfd7d5.ctex"
+uid="uid://d3rjvelifso1s"
+path="res://.godot/imported/logo w text.svg-cb20145358a56c3fae0ba6c86e20314e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splash_screen/logo.svg"
-dest_files=["res://.godot/imported/logo.svg-1349ef34027eec019352ef8b9fdfd7d5.ctex"]
+source_file="res://splash_screen/logo w text.svg"
+dest_files=["res://.godot/imported/logo w text.svg-cb20145358a56c3fae0ba6c86e20314e.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.0
+compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

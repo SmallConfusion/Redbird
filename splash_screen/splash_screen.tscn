@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6jc8r3jg0ju1"]
 
 [ext_resource type="Script" path="res://splash_screen/splash_screen.gd" id="1_iurx5"]
-[ext_resource type="Texture2D" uid="uid://cieveea1xdexg" path="res://splash_screen/logo.svg" id="1_p0rr4"]
+[ext_resource type="Texture2D" uid="uid://d3rjvelifso1s" path="res://splash_screen/logo w text.svg" id="2_c0kt4"]
 [ext_resource type="Texture2D" uid="uid://cixxgjiqsp1yv" path="res://splash_screen/hotpanda-1x.png" id="2_s8730"]
 
 [sub_resource type="SystemFont" id="SystemFont_b44lf"]
@@ -41,14 +41,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -383.0
-offset_top = -154.0
-offset_right = 383.0
-offset_bottom = 154.0
+offset_left = -387.0
+offset_top = -116.0
+offset_right = 387.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_p0rr4")
-expand_mode = 2
+texture = ExtResource("2_c0kt4")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="SplashScreen"]
