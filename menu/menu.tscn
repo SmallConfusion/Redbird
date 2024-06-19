@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://20ok8gqsfhqm"]
+[gd_scene load_steps=27 format=3 uid="uid://20ok8gqsfhqm"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_xhay3"]
 [ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_og1g8"]
 [ext_resource type="Script" path="res://menu/button.gd" id="3_6t18n"]
+[ext_resource type="Script" path="res://menu/fullscreen_button.gd" id="3_epabv"]
 [ext_resource type="Texture2D" uid="uid://dk2juea27hs0w" path="res://icons/skull_icon.png" id="4_dncki"]
 [ext_resource type="Texture2D" uid="uid://b62uxvqq4s84t" path="res://icons/controls_z.png" id="5_5vtov"]
 [ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/player/bird_sprites.png" id="5_cxqf7"]
@@ -292,20 +293,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CheckButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -40.5
-offset_top = -31.0
-offset_right = 40.5
-offset_bottom = -16.0
+layout_mode = 2
+offset_left = 9.0
+offset_top = 118.0
+offset_right = 71.0
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Quality High"
+text = "Quality H"
 script = ExtResource("3_6t18n")
+
+[node name="CheckButton2" type="Button" parent="."]
+layout_mode = 2
+offset_left = 79.0
+offset_top = 118.0
+offset_right = 152.0
+offset_bottom = 133.0
+text = "Fullscreen"
+script = ExtResource("3_epabv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
