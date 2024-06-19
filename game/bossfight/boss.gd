@@ -75,7 +75,7 @@ func _spawn_enemy():
 	enemy.enabled = true
 	enemy.connect("dead", _on_enemy_dead)
 	
-	$"..".add_child(enemy)
+	$"..".call_deferred("add_child", enemy)
 	
 	last_enemy = enemy
 
@@ -98,7 +98,7 @@ func kill():
 	SoundManager.play("boss", "explosion")
 	
 	if last_enemy:
-		last_enemy.hit(1)
+		last_enemy.call_deferred("hit", 2)
 	
 	do_particles()
 	

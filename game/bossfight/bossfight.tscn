@@ -53,7 +53,7 @@ streams = Array[AudioStream]([ExtResource("14_o14mk")])
 script = ExtResource("12_yyw1w")
 name = "explosion"
 bus = ""
-volume = 0.0
+volume = -4.5
 pitch = 1.0
 streams = Array[AudioStream]([ExtResource("15_ipyq7")])
 

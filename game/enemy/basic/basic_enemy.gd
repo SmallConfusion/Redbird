@@ -78,14 +78,16 @@ func _handle_fire(delta):
 		SoundManager.play("basic_enemy", "fire")
 
 
-func hit(_damage):
+func hit(damage):
 	if enabled:
 		emit_particles()
 		game_scene.shake(0)
 		game_scene.score += 100
-		SoundManager.play("basic_enemy", "die")
 		emit_signal("dead")
 		queue_free()
+		
+		if damage != 2: # This happens when the boss dies
+			SoundManager.play("basic_enemy", "die")
 
 func emit_particles():
 	var particles = death_particles.instantiate()
