@@ -18,3 +18,9 @@ func _ready():
 	
 	$CheckButton.init(scene_manager)
 
+
+func _process(delta):
+	if scene_manager.unlocked_level >= 4:
+		$Animation/Egg3.visible = false
+		$Animation/AnimatedSprite2D2.visible = false
+
