@@ -1,13 +1,29 @@
-[gd_scene load_steps=23 format=3 uid="uid://20ok8gqsfhqm"]
+[gd_scene load_steps=26 format=3 uid="uid://20ok8gqsfhqm"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_xhay3"]
 [ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_og1g8"]
 [ext_resource type="Script" path="res://menu/button.gd" id="3_6t18n"]
-[ext_resource type="Texture2D" uid="uid://dk2juea27hs0w" path="res://skull_icon.png" id="4_3g8b0"]
+[ext_resource type="Texture2D" uid="uid://dk2juea27hs0w" path="res://icons/skull_icon.png" id="4_dncki"]
+[ext_resource type="Texture2D" uid="uid://b62uxvqq4s84t" path="res://icons/controls_z.png" id="5_5vtov"]
 [ext_resource type="Texture2D" uid="uid://bdh8q8rg6ohdl" path="res://game/player/bird_sprites.png" id="5_cxqf7"]
 [ext_resource type="Texture2D" uid="uid://c5aq2qpyq73yo" path="res://vfx/menu_animation/egg.png" id="6_gl6wo"]
+[ext_resource type="Texture2D" uid="uid://bt8chy6vq4fyg" path="res://icons/controls_empty.png" id="6_i8ibu"]
 [ext_resource type="Texture2D" uid="uid://d1yngnb8sbmax" path="res://vfx/menu_animation/nest.png" id="7_12r68"]
 [ext_resource type="Texture2D" uid="uid://b0qihawvwl7d1" path="res://game/enemy/basic/pterodactyl_sprites.png" id="8_aacdf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efcyj"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("5_5vtov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i8ibu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.2
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_joswf"]
 atlas = ExtResource("5_cxqf7")
@@ -345,10 +361,16 @@ layout_mode = 2
 
 [node name="Button5" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("4_3g8b0")
+icon = ExtResource("4_dncki")
 script = ExtResource("2_og1g8")
 level = 4
 last_button = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 47)
+sprite_frames = SubResource("SpriteFrames_efcyj")
+autoplay = "default"
+offset = Vector2(0, 0.5)
 
 [node name="Animation" type="Node2D" parent="."]
 position = Vector2(-1, 0)

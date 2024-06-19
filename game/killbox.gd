@@ -1,8 +1,5 @@
 extends Area2D
 
-func hit(damage):
-	return
-
 func destroy():
 	if $"../".has_method("destroy"):
 		$"../".destroy()

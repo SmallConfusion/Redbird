@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3mhsid5x7d8r"]
+[gd_scene load_steps=16 format=3 uid="uid://c3mhsid5x7d8r"]
 
 [ext_resource type="Script" path="res://game/levels/game_manager.gd" id="1_20xix"]
 [ext_resource type="Curve" uid="uid://uiknf54j7x5x" path="res://game/levels/pull.tres" id="2_bqf1a"]
@@ -10,9 +10,26 @@
 [ext_resource type="Script" path="res://game/levels/wave.gd" id="6_d2j5s"]
 [ext_resource type="PackedScene" uid="uid://bmr51txifyigr" path="res://game/hole/hole.tscn" id="6_dlb8f"]
 [ext_resource type="PackedScene" uid="uid://b2bvdeyhcyp54" path="res://game/egg/egg.tscn" id="7_652e0"]
+[ext_resource type="Texture2D" uid="uid://dqkl4loxnhdeb" path="res://icons/controls.png" id="11_qg2hi"]
+[ext_resource type="Texture2D" uid="uid://bt8chy6vq4fyg" path="res://icons/controls_empty.png" id="12_t5m5n"]
+[ext_resource type="Script" path="res://game/levels/Controls.gd" id="13_8mcpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5sfn"]
 size = Vector2(20, 273)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rkumt"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("11_qg2hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t5m5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.2
+}]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -117,5 +134,13 @@ position = Vector2(-32, 0)
 
 [node name="Hole" parent="." instance=ExtResource("6_dlb8f")]
 position = Vector2(352, 48)
+
+[node name="Controls" type="AnimatedSprite2D" parent="."]
+position = Vector2(-27, -3)
+sprite_frames = SubResource("SpriteFrames_rkumt")
+autoplay = "default"
+frame_progress = 0.25071
+offset = Vector2(0, 0.5)
+script = ExtResource("13_8mcpl")
 
 [connection signal="area_entered" from="Camera2D/Killbox" to="Camera2D/Killbox" method="_on_area_entered"]

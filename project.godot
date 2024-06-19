@@ -48,7 +48,7 @@ enabled=PackedStringArray("res://addons/resonate/plugin.cfg")
 
 [gui]
 
-theme/custom="res://default_theme.tres"
+theme/custom="res://themes/default_theme.tres"
 
 [input]
 

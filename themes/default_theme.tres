@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://cvo518bnwbvlf"]
 
-[ext_resource type="FontFile" uid="uid://digx05vcj7vk7" path="res://dogicapixel.ttf" id="1_o1c4v"]
-[ext_resource type="StyleBox" uid="uid://ctbpxa5eojlw" path="res://normal_stylebox.tres" id="2_eyoq3"]
+[ext_resource type="FontFile" uid="uid://digx05vcj7vk7" path="res://themes/dogicapixel.ttf" id="1_o1c4v"]
+[ext_resource type="StyleBox" uid="uid://ctbpxa5eojlw" path="res://themes/normal_stylebox.tres" id="2_eyoq3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeo3a"]
 content_margin_left = 4.0
