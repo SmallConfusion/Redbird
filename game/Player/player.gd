@@ -40,8 +40,12 @@ var is_dead := false
 
 var started := false
 
+var ignore_black_hole_timer := 0.0
+var ignore_black_hole_cooldown := 0.15
 
 func _physics_process(delta):
+	ignore_black_hole_timer -= delta
+	
 	if Input.is_action_just_pressed("Flap"):
 		started = true
 	
@@ -130,8 +134,10 @@ func _apply_velocity():
 		velocity.y = min(velocity.y, max_speed_y_fall)
 	else:
 		velocity.y = min(velocity.y, max_speed_y)
-
-	position += game_scene.get_pull(position)
+	
+	if ignore_black_hole_timer <= 0:
+		position += game_scene.get_pull(position)
+	
 	position += velocity
 	position.x -= game_scene.get_x_speed()
 
@@ -161,4 +167,5 @@ func _check_bounds():
 		error = true
 	
 	if error:
+		ignore_black_hole_timer = ignore_black_hole_cooldown
 		SoundManager.play("player", "error")
