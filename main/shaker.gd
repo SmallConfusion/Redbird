@@ -35,6 +35,9 @@ func shake_soft():
 
 
 func shake_hard():
+	shake_soft()
+	return
+	
 	if shake <= 0:
 		shake_speed = 0.15
 		shake_intensity = 35.0

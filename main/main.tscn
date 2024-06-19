@@ -314,6 +314,7 @@ color = Color(0, 0, 0, 1)
 [node name="ExplosionParticles" parent="." instance=ExtResource("25_knffh")]
 process_mode = 3
 position = Vector2(208, 376)
+autoplay = true
 
 [node name="DeathParticles" parent="." instance=ExtResource("26_dwxso")]
 process_mode = 3

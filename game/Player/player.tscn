@@ -99,7 +99,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nwnr"]
-size = Vector2(8, 3)
+size = Vector2(5, 3)
 
 [sub_resource type="Resource" id="Resource_hinc4"]
 script = ExtResource("8_l8oum")
@@ -158,7 +158,7 @@ position = Vector2(0, 1)
 script = ExtResource("5_1mh6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -0.5)
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_7nwnr")
 
 [node name="SoundBank" type="Node" parent="."]

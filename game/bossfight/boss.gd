@@ -19,9 +19,9 @@ var last_enemy
 var dead := false
 
 
-#func _ready():
-	#await get_tree().create_timer(5).timeout
-	#kill()
+func _ready():
+	await get_tree().create_timer(4).timeout
+	kill()
 
 
 func _physics_process(delta):
