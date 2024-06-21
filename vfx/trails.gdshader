@@ -4,16 +4,17 @@ uniform sampler2D viewport;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 void fragment() {
-	vec3 color = texture(screen_texture, UV).rgb;
 	vec3 viewport_color = texture(viewport, UV).rgb;
+	vec3 screen_color = texture(screen_texture, UV).rgb;
 	
-	vec3 diff = viewport_color - color;
+	vec3 diff = viewport_color.rgb - screen_color.rgb;
 	
-	diff.r *= sign(diff.r) / 8.0 + 0.65;
-	diff.g *= sign(diff.g) / 8.0 + 0.65;
-	diff.b *= sign(diff.b) / 8.0 + 0.65;
+	const float bright_mul = 0.8;
+	const float dark_mul = 0.5;
 	
-	color += diff;
+	screen_color.r += max(diff.r, 0) * bright_mul + min(diff.r, 0) * dark_mul;
+	screen_color.g += max(diff.g, 0) * bright_mul + min(diff.g, 0) * dark_mul;
+	screen_color.b += max(diff.b, 0) * bright_mul + min(diff.b, 0) * dark_mul;
 	
-	COLOR.rgb = color;
+	COLOR.rgb = screen_color.rgb;
 }
